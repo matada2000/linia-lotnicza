@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+Route::get('/test', function () {
     return view('welcome');
+});
+
+Route::get('/', function () {
+    return view('landing');
 });
 
 Auth::routes();
