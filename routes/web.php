@@ -21,6 +21,7 @@ Route::get('/test', function () {
     return view('welcome');
 });
 
+
 Route::get('/', function () {
     return view('landing');
 });
@@ -28,6 +29,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/harmonogram',[App\Http\Controllers\HarmonogramController::class, 'show']);
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
