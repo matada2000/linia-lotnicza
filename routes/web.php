@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\AirportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/harmonogram',[App\Http\Controllers\HarmonogramController::class, 'show']);
+
+Route::get('airports',[AirportController::class,'getData']);
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
