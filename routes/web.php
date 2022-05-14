@@ -6,6 +6,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AirportController;
+use App\Http\Controllers\AircraftController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\LuggageController;
+use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\FlightController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +40,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/harmonogram',[App\Http\Controllers\HarmonogramController::class, 'show']);
 
 Route::get('airports',[AirportController::class,'getData']);
+Route::get('aircrafts',[AircraftController::class,'getData']);
+Route::get('tickets',[TicketController::class,'getData']);
+Route::get('salaries',[SalaryController::class,'getData']);
+Route::get('luggages',[LuggageController::class,'getData']);
+Route::get('flights',[FlightController::class,'getData']);
+
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
