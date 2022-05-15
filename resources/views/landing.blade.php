@@ -60,7 +60,7 @@
           <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
               <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 @auth
-                  <a class="nav-link" href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Panel zarządzania</a>
+                  <a class="nav-link" href="{{ url('/user/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Panel zarządzania</a>
                 @else
                   <a class="nav-link" href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">logowanie</a>
 
