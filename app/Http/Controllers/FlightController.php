@@ -11,4 +11,9 @@ class FlightController extends Controller
     {
         return Flight::all();
     }
+    public function index() {
+        return view('flights', [
+        'flights' => Flight::all()
+        ]);
+    }
 }

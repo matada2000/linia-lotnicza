@@ -11,4 +11,10 @@ class AirportController extends Controller
     {
         return Airport::all();
     }
+    public function index() {
+        return view('airports', [
+        'airports' => Airport::all()
+    ]);
+        
+    }
 }

@@ -40,12 +40,23 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/harmonogram',[App\Http\Controllers\HarmonogramController::class, 'show']);
 
-Route::get('airports',[AirportController::class,'getData']);
-Route::get('aircrafts',[AircraftController::class,'getData']);
-Route::get('tickets',[TicketController::class,'getData']);
-Route::get('salaries',[SalaryController::class,'getData']);
-Route::get('luggages',[LuggageController::class,'getData']);
-Route::get('flights',[FlightController::class,'getData']);
+//Route::get('airports',[AirportController::class,'getData']);
+Route::get('/airports',[App\Http\Controllers\AirportController::class, 'index']);
+
+//Route::get('aircrafts',[AircraftController::class,'getData']);
+Route::get('/aircrafts',[App\Http\Controllers\AircraftController::class, 'index']);
+
+//Route::get('tickets',[TicketController::class,'getData']);
+Route::get('/tickets',[App\Http\Controllers\TicketController::class, 'index']);
+
+//Route::get('salaries',[SalaryController::class,'getData']);
+Route::get('/salaries',[App\Http\Controllers\SalaryController::class, 'index']);
+
+//Route::get('luggages',[LuggageController::class,'getData']);
+Route::get('/luggages',[App\Http\Controllers\LuggageController::class, 'index']);
+
+//Route::get('flights',[FlightController::class,'getData']);
+Route::get('/flights',[App\Http\Controllers\FlightController::class, 'index']);
 
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){

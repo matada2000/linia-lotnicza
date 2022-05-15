@@ -11,4 +11,9 @@ class TicketController extends Controller
     {
         return Ticket::all();
     }
+    public function index() {
+        return view('tickets', [
+        'tickets' => Ticket::all()
+        ]);
+    }
 }

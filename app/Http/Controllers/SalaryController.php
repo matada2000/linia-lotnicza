@@ -11,4 +11,9 @@ class SalaryController extends Controller
     {
         return Salary::all();
     }
+    public function index() {
+        return view('salaries', [
+        'salaries' => Salary::all()
+        ]);
+    }
 }

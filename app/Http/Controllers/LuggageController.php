@@ -11,4 +11,9 @@ class LuggageController extends Controller
     {
         return Luggage::all();
     }
+    public function index() {
+        return view('luggages', [
+        'luggages' => Luggage::all()
+        ]);
+    }
 }
