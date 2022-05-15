@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AirportController;
 use App\Http\Controllers\AircraftController;
@@ -59,6 +60,13 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
     Route::get('profile',[UserController::class,'profile'])->name('user.profile');
     Route::get('settings',[UserController::class,'settings'])->name('user.settings');
+
+});
+
+Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], function(){
+    Route::get('dashboard',[EmployeeController::class,'index'])->name('employee.dashboard');
+    Route::get('profile',[EmployeeController::class,'profile'])->name('employee.profile');
+    Route::get('settings',[EmployeeController::class,'settings'])->name('employee.settings');
 
 });
 
