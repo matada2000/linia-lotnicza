@@ -28,7 +28,9 @@ class AirportController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+
+        return view('dashboards.admins.creates.manage_airports',['users' => $users]);
     }
 
     /**
@@ -39,7 +41,19 @@ class AirportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'name' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+        ]);
+
+        Airport::create([
+            'name' => request('name'),
+            'country' => request('country'),
+            'city' => request('city'),
+        ]);
+
+        return redirect('/admin/manage_airports');
     }
 
     /**
@@ -98,6 +112,8 @@ class AirportController extends Controller
      */
     public function destroy(Airport $airport)
     {
-        //
+        $airport -> delete();
+
+        return redirect('/admin/manage_airports');
     }
 }

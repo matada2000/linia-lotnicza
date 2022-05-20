@@ -153,7 +153,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <li class="nav-item">
             <a href="{{ route('admin.manage_employees')}}" class="nav-link">
               <i class="nav-icon fas fa-eye"></i>
-              <p>
+              <p style="font-size: 15px;">
                 Zarządzanie pracownikami
               </p>
             </a>
@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <a href="{{ route('admin.manage_airports')}}" class="nav-link">
-              <i class="nav-icon fas fa-eye"></i>
+              <i class="nav-icon fas fa-star"></i>
               <p>
                 Zarządzanie lotniskami
               </p>

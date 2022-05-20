@@ -70,8 +70,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('manage_employees',[AdminController::class,'manage_employees'])->name('admin.manage_employees');
     Route::get('manage_airports',[AirportController::class, 'index'])->name('admin.manage_airports');
     Route::get('manage_airports/{airport}/edit',[AirportController::class, 'edit']);
-    Route::put('manage_airports/{airport}/',[AirportController::class, 'update']);
-
+    Route::put('manage_airports/{airport}',[AirportController::class, 'update']);
+    Route::get('manage_airports/create',[AirportController::class, 'create']);
+    Route::post('manage_airports',[AirportController::class, 'store']);
+    Route::delete('manage_airports/{airport}',[AirportController::class,'destroy']);
 });
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
