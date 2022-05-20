@@ -18,7 +18,7 @@ return new class extends Migration
             #$table->foreignID('users_id')->references('id')->on('users');
             #$table->foreignID('flights_id')->references('id')->on('flights');
             $table->enum('type', ['carry-on', 'checked'])->nullable();
-            $table->float('waga')->nullable();
+            $table->float('weight')->nullable();
             $table->timestamps();
         });
     }

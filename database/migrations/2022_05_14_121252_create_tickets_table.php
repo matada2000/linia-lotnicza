@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->integer('price');
-            $table->enum('klasa', ['ekonomiczna', 'biznesowa', 'pierwsza']);
-            $table->boolean('reklamacja')->nullable()->default(false);
+            $table->enum('class', ['economic', 'bisness', 'first']);
+            $table->boolean('complaint')->nullable()->default(false);
             $table->integer('seat_number');
             $table->timestamps();
         });

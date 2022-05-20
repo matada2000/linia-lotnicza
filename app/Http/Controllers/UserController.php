@@ -10,12 +10,13 @@ class UserController extends Controller
 
         return view('dashboards.users.index');
     }
-    
+
     function profile(){
-           return view('dashboards.users.profile');
+        return view('dashboards.users.profile');
     }
+    
     function settings(){
-           return view('dashboards.users.settings');
+        return view('dashboards.users.settings');
     }
     
        

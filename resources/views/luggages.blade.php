@@ -95,7 +95,7 @@
         <tr>
           <th scope="row">{{ $luggage->id }}</th>
           <td>{{ $luggage->type }}</td>
-          <td>{{ $luggage->waga }}</td>
+          <td>{{ $luggage->weight }}</td>
         </tr>
       @endforeach
       </tbody>

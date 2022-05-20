@@ -97,8 +97,8 @@
         <tr>
           <th scope="row">{{ $ticket->id }}</th>
           <td>{{ $ticket->price }}</td>
-          <td>{{ $ticket->klasa }}</td>
-          <td>{{ $ticket->reklamacja }}</td>
+          <td>{{ $ticket->class }}</td>
+          <td>{{ $ticket->complaint }}</td>
           <td>{{ $ticket->seat_number }}</td>
         </tr>
       @endforeach

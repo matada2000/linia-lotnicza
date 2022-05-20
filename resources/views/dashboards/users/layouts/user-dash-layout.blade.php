@@ -102,7 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           
           <li class="nav-item">
-            <a href="{{ route('admin.dashboard')}}" class="nav-link">
+            <a href="{{ route('user.dashboard')}}" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
                 Dashboard
@@ -111,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           
           <li class="nav-item">
-            <a href="{{ route('admin.profile')}}" class="nav-link">
+            <a href="{{ route('user.profile')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Profile
@@ -120,7 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
 
           <li class="nav-item">
-            <a href="{{ route('admin.settings')}}" class="nav-link">
+            <a href="{{ route('user.settings')}}" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Settings
