@@ -15,6 +15,9 @@ use App\Http\Controllers\FlightController;
 
 
 
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,6 +45,7 @@ Route::get('/harmonogram',[App\Http\Controllers\HarmonogramController::class, 's
 
 //Route::get('airports',[AirportController::class,'getData']);
 Route::get('/airports',[App\Http\Controllers\AirportController::class, 'index']);
+//Route::get('/airports/{airport}/edit',[App\Http\Controllers\AirportController::class, 'edit']);
 
 //Route::get('aircrafts',[AircraftController::class,'getData']);
 Route::get('/aircrafts',[App\Http\Controllers\AircraftController::class, 'index']);
@@ -64,7 +68,10 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
     Route::get('settings',[AdminController::class,'settings'])->name('admin.settings');
     Route::get('manage_employees',[AdminController::class,'manage_employees'])->name('admin.manage_employees');
-   
+    Route::get('manage_airports',[AirportController::class, 'index'])->name('admin.manage_airports');
+    Route::get('manage_airports/{airport}/edit',[AirportController::class, 'edit']);
+    Route::put('manage_airports/{airport}/',[AirportController::class, 'update']);
+
 });
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
@@ -80,5 +87,4 @@ Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], functi
     Route::get('settings',[EmployeeController::class,'settings'])->name('employee.settings');
 
 });
-
 
