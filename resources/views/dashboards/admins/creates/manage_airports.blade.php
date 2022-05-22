@@ -13,7 +13,7 @@
 </style>
 
 <br>
-<h2><center>Dodanie Lotniska</center></h1>
+<h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Dodanie Lotniska</center></h1>
 <br>
 
 <form method="POST" action="/admin/manage_airports">

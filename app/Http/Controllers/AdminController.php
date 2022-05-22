@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Airport;
 
+use Illuminate\Support\Facades\Hash;
+
 class AdminController extends Controller
 {
     function index(){
@@ -23,6 +25,7 @@ class AdminController extends Controller
         $data = User::all();
         return view('dashboards.admins.profile',['users'=>$data],compact('max'));
     }
+
     function manage_employees(){
         $max = DB::table('users')->max('id');
 

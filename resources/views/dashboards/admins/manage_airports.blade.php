@@ -22,7 +22,7 @@
   }
 </style>
 
-<h2><center>Zarządzanie Lotniskami</center></h1>
+<h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Zarządzanie Lotniskami</center></h1>
 
 <form action="/admin/manage_airports/create"><center><input class="input1" type="submit" value="Dodaj"></center></form>
 

@@ -12,6 +12,7 @@ use App\Http\Controllers\TicketController;
 use App\Http\Controllers\LuggageController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\FlightController;
+use App\Http\Controllers\ProfileController;
 
 
 
@@ -65,7 +66,6 @@ Route::get('/flights',[App\Http\Controllers\FlightController::class, 'index']);
 
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
-    Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
 
     // Employees
     Route::get('manage_employees',[AdminController::class,'manage_employees'])->name('admin.manage_employees');
@@ -75,6 +75,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('manage_employees/create',[EmployeeController::class, 'create']);
     Route::post('manage_employees',[EmployeeController::class, 'store']);
     Route::delete('manage_employees/{employee}',[EmployeeController::class,'destroy']);
+
+    //Profile
+    Route::get('profiles',[ProfileController::class,'lista'])->name('admin.profiles');
+    Route::get('profiles/{profile}/edit',[ProfileController::class, 'edit']);
+    Route::put('profiles/{profile}',[ProfileController::class, 'update']);
+    Route::post('profiles',[ProfileController::class, 'store']);
+
 
     // Airports
     Route::get('manage_airports',[AirportController::class, 'index'])->name('admin.manage_airports');

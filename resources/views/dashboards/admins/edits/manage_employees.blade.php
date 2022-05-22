@@ -13,7 +13,7 @@
 </style>
 
 <br>
-<h2><center>Edycja Pracownika</center></h1>
+<h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Edycja Pracownika</center></h1>
 <br>
 
 <form method="POST" action="/admin/manage_employees/{{$employee->id}}">
