@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Airport;
 use Illuminate\Http\Request;
@@ -17,8 +18,9 @@ class AirportController extends Controller
     {
         $airports = Airport::all();
         $users = User::all();
+        $max = DB::table('users')->max('id');
 
-        return view('dashboards.admins.manage_airports',['airports' => $airports],['users' => $users]);
+        return view('dashboards.admins.manage_airports',compact('max','users','airports'));
     }
 
     /**
@@ -29,8 +31,9 @@ class AirportController extends Controller
     public function create()
     {
         $users = User::all();
+        $max = DB::table('users')->max('id');
 
-        return view('dashboards.admins.creates.manage_airports',['users' => $users]);
+        return view('dashboards.admins.creates.manage_airports',['users' => $users],compact('max'));
     }
 
     /**
@@ -76,8 +79,9 @@ class AirportController extends Controller
     public function edit(Airport $airport)
     {
         $users = User::all();
+        $max = DB::table('users')->max('id');
 
-        return view('dashboards.admins.edits.manage_airports',['airport' => $airport],['users' => $users]);
+        return view('dashboards.admins.edits.manage_airports',compact('max','users','airport'));
     }
 
     /**

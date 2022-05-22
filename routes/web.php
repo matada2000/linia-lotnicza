@@ -66,14 +66,28 @@ Route::get('/flights',[App\Http\Controllers\FlightController::class, 'index']);
 Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('dashboard',[AdminController::class,'index'])->name('admin.dashboard');
     Route::get('profile',[AdminController::class,'profile'])->name('admin.profile');
-    Route::get('settings',[AdminController::class,'settings'])->name('admin.settings');
+
+    // Employees
     Route::get('manage_employees',[AdminController::class,'manage_employees'])->name('admin.manage_employees');
+    Route::get('manage_employees',[EmployeeController::class,'lista'])->name('admin.manage_employees');
+    Route::get('manage_employees/{employee}/edit',[EmployeeController::class, 'edit']);
+    Route::put('manage_employees/{employee}',[EmployeeController::class, 'update']);
+    Route::get('manage_employees/create',[EmployeeController::class, 'create']);
+    Route::post('manage_employees',[EmployeeController::class, 'store']);
+    Route::delete('manage_employees/{employee}',[EmployeeController::class,'destroy']);
+
+    // Airports
     Route::get('manage_airports',[AirportController::class, 'index'])->name('admin.manage_airports');
     Route::get('manage_airports/{airport}/edit',[AirportController::class, 'edit']);
     Route::put('manage_airports/{airport}',[AirportController::class, 'update']);
     Route::get('manage_airports/create',[AirportController::class, 'create']);
     Route::post('manage_airports',[AirportController::class, 'store']);
     Route::delete('manage_airports/{airport}',[AirportController::class,'destroy']);
+
+    //Aircrafts
+    Route::get('manage_aircrafts',[AdminController::class,'manage_aircrafts'])->name('admin.manage_aircrafts');
+
+
 });
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){

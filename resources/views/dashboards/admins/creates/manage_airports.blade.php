@@ -12,6 +12,10 @@
   }
 </style>
 
+<br>
+<h2><center>Dodanie Lotniska</center></h1>
+<br>
+
 <form method="POST" action="/admin/manage_airports">
 
 
@@ -23,14 +27,14 @@
         <th scope="col"><label for="name">Nazwa:</label></th>
         <th scope="col"><label for="country">Kraj:</label></th>
         <th scope="col"><label for="city">Miasto:</label></th>
-        <th width="15%"><label for="city">Zarządzaj:</label></th>
+        <th width="15%"><label for="manage">Zarządzaj:</label></th>
       </tr>
     </thead>
     <tbody>
         <tr>
-          <td><input id="name" name="name"></td>
-          <td><input id="country" name="country"></td>
-          <td><input id="city" name="city"></td>
+          <td><input id="name" name="name" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocus></td>
+          <td><input id="country" name="country" class="form-control @error('country') is-invalid @enderror" required autocomplete="country" autofocus></td>
+          <td><input id="city" name="city" class="form-control @error('city') is-invalid @enderror" required autocomplete="city" autofocus></td>
           <td>
 
             <button style="background-color:MediumSeaGreen; color: white;">Dodaj</button>

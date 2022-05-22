@@ -70,7 +70,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="fas fa-ellipsis-h"></i>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="overflow: auto; height: 300px;">
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             @foreach($users as $user)
@@ -81,7 +81,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
                 </h3>
                 <p class="text-sm">{{$user['email']}}</p>
-                <hr color="black">
+                @if($user->id != $max)
+                  <hr color="black">
+                @endif
               </div>
             </div>
             @endforeach
@@ -127,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('admin.dashboard')}}" class="nav-link">
               <i class="nav-icon fas fa-home"></i>
               <p>
-                Dashboard
+                Panel główny
               </p>
             </a>
           </li>
@@ -136,19 +138,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="{{ route('admin.profile')}}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Profile
+                Profil
               </p>
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="{{ route('admin.settings')}}" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Settings
-              </p>
-            </a>
-          </li>
+          
+          <hr style="width:100%;text-align:left;margin-left:0;color:white;background-color:white;">
+          
 
           <li class="nav-item">
             <a href="{{ route('admin.manage_employees')}}" class="nav-link">
@@ -164,6 +161,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <i class="nav-icon fas fa-star"></i>
               <p>
                 Zarządzanie lotniskami
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.manage_aircrafts')}}" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Zarządzanie samolotami
               </p>
             </a>
           </li>

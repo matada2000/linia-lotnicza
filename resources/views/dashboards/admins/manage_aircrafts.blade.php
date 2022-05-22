@@ -1,7 +1,7 @@
 @extends('dashboards.admins.layouts.admin-dash-layout')
-@section('title','Settings')
+@section('title','Manage aircrafts')
 @section('content')
 
-settings
+Manage aircrafts
 
 @endsection
