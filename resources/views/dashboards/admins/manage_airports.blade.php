@@ -13,7 +13,7 @@
   }
 
   .input2 {
-    width: 25%;
+    width: 35%;
     font-size: 18px;
     background-color: ;
     border-radius: 25px;
@@ -36,7 +36,9 @@
         <th scope="col">name</th>
         <th scope="col">country</th>
         <th scope="col">city</th>
-        <th scope="col">Zarządzaj</th>
+        <th scope="col">Stworzone</th>
+        <th scope="col">Zaktualizowane</th>
+        <th width="20%">Zarządzaj</th>
       </tr>
     </thead>
     <tbody>
@@ -46,6 +48,8 @@
           <td>{{ $airport->name }}</td>
           <td>{{ $airport->country }}</td>
           <td>{{ $airport->city }}</td>
+          <td>{{ $airport->created_at }}</td>
+          <td>{{ $airport->updated_at }}</td>
           <td><form action="/admin/manage_airports/{{$airport->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>
         </tr>
       @endforeach
