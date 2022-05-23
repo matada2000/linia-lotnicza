@@ -3,6 +3,9 @@
 @section('content')
 
 <style>
+  td, th {
+  text-align: center;
+}
   button {
     width: 50%;
     font-size: 18px;

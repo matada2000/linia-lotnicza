@@ -93,7 +93,21 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
 
     //Aircrafts
     Route::get('manage_aircrafts',[AdminController::class,'manage_aircrafts'])->name('admin.manage_aircrafts');
+    Route::get('manage_aircrafts',[AircraftController::class,'index'])->name('admin.manage_aircrafts');
+    Route::get('manage_aircrafts/{aircraft}/edit',[AircraftController::class, 'edit']);
+    Route::put('manage_aircrafts/{aircraft}',[AircraftController::class, 'update']);
+    Route::get('manage_aircrafts/create',[AircraftController::class, 'create']);
+    Route::post('manage_aircrafts',[AircraftController::class, 'store']);
+    Route::delete('manage_aircrafts/{aircraft}',[AircraftController::class,'destroy']);
 
+    //Schedule works
+    Route::get('schedule_works',[AdminController::class,'schedule_works'])->name('admin.schedule_works');
+
+    //Schedule flights
+    Route::get('schedule_flights',[AdminController::class,'schedule_flights'])->name('admin.schedule_flights');
+
+    //Poczta
+    Route::get('message_offices',[AdminController::class,'message_offices'])->name('admin.message_offices');
 
 });
 

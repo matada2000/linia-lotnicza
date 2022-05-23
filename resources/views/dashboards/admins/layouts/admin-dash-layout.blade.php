@@ -100,7 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="/" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">Linia lotnicza</span>
     </a>
@@ -113,7 +113,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="/" class="d-block">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -158,7 +158,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <a href="{{ route('admin.manage_airports')}}" class="nav-link">
-              <i class="nav-icon fas fa-star"></i>
+              <i class="nav-icon fas fa-eye"></i>
               <p>
                 Zarządzanie lotniskami
               </p>
@@ -167,9 +167,40 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <a href="{{ route('admin.manage_aircrafts')}}" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
+              <i class="nav-icon fas fa-eye"></i>
               <p>
                 Zarządzanie samolotami
+              </p>
+            </a>
+          </li>
+
+          <hr style="width:100%;text-align:left;margin-left:0;color:white;background-color:white;">
+
+          <li class="nav-item">
+            <a href="{{ route('admin.schedule_flights')}}" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Zarządzanie harmonogramem lotu
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('admin.schedule_works')}}" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Zarządzanie harmonogramem pracy
+              </p>
+            </a>
+          </li>
+
+          <hr style="width:100%;text-align:left;margin-left:0;color:white;background-color:white;">
+
+          <li class="nav-item">
+            <a href="{{ route('admin.message_offices')}}" class="nav-link">
+              <i class="fas fa-envelope"></i>
+              <p>
+                Skrzynka pocztowa
               </p>
             </a>
           </li>

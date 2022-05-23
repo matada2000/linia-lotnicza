@@ -9,6 +9,10 @@ class Aircraft extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'model', 'number_of_seats'
+    ];
+
     public function flights()
     {
         return $this->hasMany(Flight::class);

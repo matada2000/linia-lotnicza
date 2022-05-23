@@ -3,6 +3,9 @@
 @section('content')
 
 <style>
+    td, th {
+  text-align: center;
+}
   .input1 {
     width: 15%;
     font-size: 18px;

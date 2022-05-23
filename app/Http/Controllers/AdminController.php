@@ -44,4 +44,22 @@ class AdminController extends Controller
         $data = User::all();
         return view('dashboards.admins.manage_aircrafts',['users'=>$data],compact('max'));
     }
+    function schedule_flights(){
+        $max = DB::table('users')->max('id');
+
+        $data = User::all();
+        return view('dashboards.admins.schedule_flights',['users'=>$data],compact('max'));
+    }
+    function schedule_works(){
+        $max = DB::table('users')->max('id');
+
+        $data = User::all();
+        return view('dashboards.admins.schedule_works',['users'=>$data],compact('max'));
+    }
+    function message_offices(){
+        $max = DB::table('users')->max('id');
+
+        $data = User::all();
+        return view('dashboards.admins.message_offices',['users'=>$data],compact('max'));
+    }
 }

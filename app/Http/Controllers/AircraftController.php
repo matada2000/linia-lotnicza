@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\Aircraft;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AircraftController extends Controller
@@ -14,9 +16,11 @@ class AircraftController extends Controller
      */
     public function index()
     {
-        return view('aircrafts', [
-            'aircrafts' => Aircraft::all()
-        ]);
+        $aircrafts = Aircraft::all();
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+
+        return view('dashboards.admins.manage_aircrafts',compact('max','users','aircrafts'));
     }
 
     /**
@@ -26,7 +30,10 @@ class AircraftController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+
+        return view('dashboards.admins.creates.manage_aircrafts',['users' => $users],compact('max'));
     }
 
     /**
@@ -37,7 +44,17 @@ class AircraftController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'model' => 'required',
+            'number_of_seats' => 'required',
+        ]);
+
+        Aircraft::create([
+            'model' => request('model'),
+            'number_of_seats' => request('number_of_seats'),
+        ]);
+
+        return redirect('/admin/manage_aircrafts');
     }
 
     /**
@@ -59,7 +76,10 @@ class AircraftController extends Controller
      */
     public function edit(Aircraft $aircraft)
     {
-        //
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+
+        return view('dashboards.admins.edits.manage_aircrafts',compact('max','users','aircraft'));
     }
 
     /**
@@ -71,7 +91,17 @@ class AircraftController extends Controller
      */
     public function update(Request $request, Aircraft $aircraft)
     {
-        //
+        request()->validate([
+            'model' => 'required',
+            'number_of_seats' => 'required',
+        ]);
+
+        $aircraft->update([
+            'model' => request('model'),
+            'number_of_seats' => request('number_of_seats'),
+        ]);
+
+        return redirect('/admin/manage_aircrafts');
     }
 
     /**
@@ -82,6 +112,8 @@ class AircraftController extends Controller
      */
     public function destroy(Aircraft $aircraft)
     {
-        //
+        $aircraft -> delete();
+
+        return redirect('/admin/manage_aircrafts');
     }
 }
