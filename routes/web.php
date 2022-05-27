@@ -105,6 +105,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
 
     //Schedule flights
     Route::get('schedule_flights',[AdminController::class,'schedule_flights'])->name('admin.schedule_flights');
+    Route::get('schedule_flights',[FlightController::class,'index'])->name('admin.schedule_flights');
+    Route::get('schedule_flights/{flight}/edit',[FlightController::class, 'edit']);
+    Route::put('schedule_flights/{flight}',[FlightController::class, 'update']);
+    Route::get('schedule_flights/create',[FlightController::class, 'create']);
+    Route::post('schedule_flights',[FlightController::class, 'store']);
+    Route::delete('schedule_flights/{flight}',[FlightController::class,'destroy']);
 
     //Poczta
     Route::get('message_offices',[AdminController::class,'message_offices'])->name('admin.message_offices');
@@ -114,7 +120,12 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
     Route::get('profile',[UserController::class,'profile'])->name('user.profile');
-    Route::get('settings',[UserController::class,'settings'])->name('user.settings');
+
+    //Tickets
+    Route::get('ticket',[UserController::class,'ticket'])->name('user.tickets');
+
+    //Reservations
+    Route::get('reservation',[UserController::class,'reservation'])->name('user.reservations');
 
 });
 

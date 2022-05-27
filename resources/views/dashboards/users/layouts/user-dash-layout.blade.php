@@ -119,11 +119,22 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
 
+          <hr style="width:100%;text-align:left;margin-left:0;color:white;background-color:white;">
+
           <li class="nav-item">
-            <a href="{{ route('user.settings')}}" class="nav-link">
+            <a href="{{ route('user.tickets')}}" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
-                Settings
+                Kup bilet
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{ route('user.reservations')}}" class="nav-link">
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                Rezerwacje
               </p>
             </a>
           </li>

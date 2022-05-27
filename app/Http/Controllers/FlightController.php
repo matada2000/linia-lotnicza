@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Flight;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Airport;
+use App\Models\Aircraft;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class FlightController extends Controller
 {
@@ -14,9 +20,19 @@ class FlightController extends Controller
      */
     public function index()
     {
-        return view('flights', [
-            'flights' => Flight::all()
-        ]);
+        $flights = Flight::all();
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+
+        //SELECT s.model, l.name, d.name FROM flights AS f JOIN aircraft AS s ON f.aircraft_id = s.id JOIN airports AS l ON f.airport_departure_id = l.id JOIN airports AS d ON f.airport_arrival_id = d.id;
+
+        $shares = DB::table('flights')
+        ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
+        ->join('airports','flights.airport_departure_id', '=', 'airports.id')
+        ->join('airports','flights.airport_arrival_id', '=', 'airports.id')
+        ->select('');
+
+        return view('dashboards.admins.schedule_flights',compact('max','users','flights'));
     }
 
     /**
@@ -26,7 +42,10 @@ class FlightController extends Controller
      */
     public function create()
     {
-        //
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+
+        return view('dashboards.admins.creates.schedule_flights',['users' => $users],compact('max'));
     }
 
     /**
@@ -37,7 +56,19 @@ class FlightController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'aircraft_id' => 'required',
+            'airport_departure_id' => 'required',
+            'airport_arrival_id' => 'required',
+        ]);
+
+        Flight::create([
+            'aircraft_id' => request('aircraft_id'),
+            'airport_departure_id' => request('airport_departure_id'),
+            'airport_arrival_id' => request('airport_arrival_id'),
+        ]);
+
+        return redirect('/admin/schedule_flights');
     }
 
     /**
@@ -59,7 +90,10 @@ class FlightController extends Controller
      */
     public function edit(Flight $flight)
     {
-        //
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+
+        return view('dashboards.admins.edits.schedule_flights',compact('max','users','flight'));
     }
 
     /**
@@ -71,7 +105,19 @@ class FlightController extends Controller
      */
     public function update(Request $request, Flight $flight)
     {
-        //
+        request()->validate([
+            'aircraft_id' => 'required',
+            'airport_departure_id' => 'required',
+            'airport_arrival_id' => 'required',
+        ]);
+
+        $flight->update([
+            'aircraft_id' => request('aircraft_id'),
+            'airport_departure_id' => request('airport_departure_id'),
+            'airport_arrival_id' => request('airport_arrival_id'),
+        ]);
+
+        return redirect('/admin/schedule_flights');
     }
 
     /**
@@ -82,6 +128,8 @@ class FlightController extends Controller
      */
     public function destroy(Flight $flight)
     {
-        //
+        $flight -> delete();
+
+        return redirect('/admin/schedule_flights');
     }
 }

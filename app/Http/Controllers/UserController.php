@@ -15,8 +15,12 @@ class UserController extends Controller
         return view('dashboards.users.profile');
     }
     
-    function settings(){
-        return view('dashboards.users.settings');
+    function ticket(){
+        return view('dashboards.users.tickets');
+    }
+
+    function reservation(){
+        return view('dashboards.users.reservations');
     }
     
        

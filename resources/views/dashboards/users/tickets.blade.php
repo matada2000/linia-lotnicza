@@ -1,7 +1,7 @@
 @extends('dashboards.users.layouts.user-dash-layout')
-@section('title','Settings')
+@section('title','Tickets')
 @section('content')
 
-settings
+Tickets
 
 @endsection

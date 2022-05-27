@@ -22,4 +22,8 @@ foreach ($tickets as $ticket) {
 class Ticket extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'price', 'class', 'complaint', 'seat_number', 'user_id', 'flight_id'
+    ];
 }

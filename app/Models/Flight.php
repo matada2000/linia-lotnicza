@@ -6,15 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Aircraft;
 
+/*
 $aircrafts = Aircraft::find(1)->aircrafts;
  
 foreach ($aircrafts as $aircraft) {
     //
 }
+*/
 
 class Flight extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'aircraft_id', 'airport_departure_id', 'airport_arrival_id'
+    ];
 
     public function users(): BelongsToMany
     {
