@@ -20,17 +20,18 @@ class FlightController extends Controller
      */
     public function index()
     {
-        $flights = Flight::all();
+        //$flights = Flight::all();
         $users = User::all();
         $max = DB::table('users')->max('id');
 
         //SELECT s.model, l.name, d.name FROM flights AS f JOIN aircraft AS s ON f.aircraft_id = s.id JOIN airports AS l ON f.airport_departure_id = l.id JOIN airports AS d ON f.airport_arrival_id = d.id;
 
-        $shares = DB::table('flights')
+        $flights = DB::table('flights')
         ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
-        ->join('airports','flights.airport_departure_id', '=', 'airports.id')
-        ->join('airports','flights.airport_arrival_id', '=', 'airports.id')
-        ->select('');
+        ->join('airports AS d','flights.airport_departure_id', '=', 'd.id')
+        ->join('airports AS f','flights.airport_arrival_id', '=', 'f.id')
+        ->select('flights.id','aircraft.model','d.name as o','f.name as p','flights.created_at','flights.updated_at')
+        ->get();
 
         return view('dashboards.admins.schedule_flights',compact('max','users','flights'));
     }
@@ -43,9 +44,11 @@ class FlightController extends Controller
     public function create()
     {
         $users = User::all();
+        $aircrafts = Aircraft::all();
+        $airports = Airport::orderBy('name','ASC')->get();
         $max = DB::table('users')->max('id');
 
-        return view('dashboards.admins.creates.schedule_flights',['users' => $users],compact('max'));
+        return view('dashboards.admins.creates.schedule_flights',compact('users','max','aircrafts','airports'));
     }
 
     /**
@@ -91,9 +94,11 @@ class FlightController extends Controller
     public function edit(Flight $flight)
     {
         $users = User::all();
+        $aircrafts = Aircraft::all();
+        $airports = Airport::orderBy('name','ASC')->get();
         $max = DB::table('users')->max('id');
 
-        return view('dashboards.admins.edits.schedule_flights',compact('max','users','flight'));
+        return view('dashboards.admins.edits.schedule_flights',compact('users','max','aircrafts','airports','flight'));
     }
 
     /**

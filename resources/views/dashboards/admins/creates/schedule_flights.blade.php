@@ -13,6 +13,7 @@
     border-radius: 25px;
     border: none;
   }
+
 </style>
 
 <br>
@@ -35,9 +36,27 @@
     </thead>
     <tbody>
         <tr>
-          <td><input id="aircraft_id" name="aircraft_id" class="form-control @error('aircraft_id') is-invalid @enderror" required autocomplete="aircraft_id" autofocus></td>
-          <td><input id="airport_departure_id" name="airport_departure_id" class="form-control @error('airport_departure_id') is-invalid @enderror" required autocomplete="airport_departure_id" autofocus></td>
-          <td><input id="airport_arrival_id" name="airport_arrival_id" class="form-control @error('airport_arrival_id') is-invalid @enderror" required autocomplete="airport_arrival_id" autofocus></td>
+          <td>
+            <select id="aircraft_id" name="aircraft_id" class="form-control @error('aircraft_id') is-invalid @enderror" required autocomplete="aircraft_id" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+              @foreach($aircrafts as $aircraft)
+                <option value="{{ $aircraft->id }}">{{ $aircraft->model }}</option>
+              @endforeach
+            </select> 
+          </td>
+          <td>
+            <select id="airport_departure_id" name="airport_departure_id" class="form-control @error('airport_departure_id') is-invalid @enderror" required autocomplete="airport_departure_id" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+              @foreach($airports as $airport)
+                <option value="{{ $airport->id }}">{{ $airport->name }}</option>
+              @endforeach
+            </select>
+          </td>
+          <td>
+            <select id="airport_arrival_id" name="airport_arrival_id" class="form-control @error('airport_arrival_id') is-invalid @enderror" required autocomplete="airport_arrival_id" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+              @foreach($airports as $airport)
+                <option value="{{ $airport->id }}">{{ $airport->name }}</option>
+              @endforeach
+            </select>
+          </td>
           <td>
 
             <button style="background-color:MediumSeaGreen; color: white;">Dodaj</button>

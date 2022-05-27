@@ -52,9 +52,9 @@
       @foreach ($flights as $flight)
         <tr>
           <th scope="row">{{ $flight->id }}</th>
-          <td>{{ $flight->aircraft_id}}</td>
-          <td>{{ $flight->airport_departure_id }}</td>
-          <td>{{ $flight->airport_arrival_id }}</td>
+          <td>{{ $flight->model}}</td>
+          <td>{{ $flight->o }}</td>
+          <td>{{ $flight->p }}</td>
           <td>{{ $flight->created_at }}</td>
           <td>{{ $flight->updated_at }}</td>
           <td><form action="/admin/schedule_flights/{{$flight->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>
