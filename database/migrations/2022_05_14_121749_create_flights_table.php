@@ -21,8 +21,8 @@ return new class extends Migration
             #$table->foreignID('aircrafts_id')->references('id')->on('planes');
             #$table->foreignID('airports_departure_id')->references('id')->on('airports');
             #$table->foreignID('airports_arrival_id')->references('id')->on('airports');
-            $table->dateTime('departure_time')->nullable();
-            $table->dateTime('arrival_time')->nullable();
+            $table->timestamp('departure_time')->nullable();
+            $table->timestamp('arrival_time')->nullable();
             $table->timestamps();
         });
     }
