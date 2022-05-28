@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,6 +25,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@admin.com',
             'role' => 1,
             'password' => Hash::make('adminadmin'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'name' => 'user',
@@ -31,6 +34,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'user@user.com',
             'role' => 2,
             'password' => Hash::make('useruser'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('users')->insert([
             'name' => 'empl',
@@ -38,20 +43,28 @@ class DatabaseSeeder extends Seeder
             'email' => 'empl@empl.com',
             'role' => 3,
             'password' => Hash::make('emplempl'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         //aircrafts
         DB::table('aircraft')->insert([
             'model' => 'Boeing 747',
             'number_of_seats' => 366,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('aircraft')->insert([
             'model' => 'Boeing 737',
             'number_of_seats' => 124,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('aircraft')->insert([
             'model' => 'Airbus A330',
             'number_of_seats' => 247,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         //airports
@@ -59,16 +72,22 @@ class DatabaseSeeder extends Seeder
             'name' => 'Okecie',
             'country' => 'Poland',
             'city' => 'Warsaw',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('airports')->insert([
             'name' => 'Balice',
             'country' => 'Poland',
             'city' => 'Cracow',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('airports')->insert([
             'name' => 'Modlin',
             'country' => 'Poland',
             'city' => 'Warsaw',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         
         //luggages
@@ -76,21 +95,29 @@ class DatabaseSeeder extends Seeder
             'type' => 'checked',
             'weight' => 10,
             'user_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('luggage')->insert([
             'type' => 'carry-on',
             'weight' => 2,
             'user_id' => 2,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
 
         //salaries
         DB::table('salaries')->insert([
             'ammount' => 7500,
             'user_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
         DB::table('salaries')->insert([
             'ammount' => 5000,
             'user_id' => 3,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

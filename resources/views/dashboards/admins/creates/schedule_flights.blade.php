@@ -29,12 +29,10 @@
     <thead>
       <tr>
         <th scope="col"><label for="aircraft_id">Samolot:</label></th>
-        <th scope="col"><label for="departure_time">Odlot czas:</label></th>
-        <th scope="col"><label for="arrival_time">Przylot czas:</label></th>
         <th scope="col"><label for="airport_departure_id">Odlot:</label></th>
-        <th scope="col"><label for="departure_time">Data Odlotu:</label></th>
-        <th scope="col"><label for="airport_arrival_id">Przylot:</label></th>
-        <th scope="col"><label for="arrival_time">Data Przylotu:</label></th>
+        <th scope="col"><label for="departure_time">Odlot - czas:</label></th>
+        <th scope="col"><label for="airport_arivval_id">Przylot:</label></th>
+        <th scope="col"><label for="arrival_time">Przylot - czas:</label></th>
         <th width="15%"><label for="manage">Zarządzaj:</label></th>
       </tr>
     </thead>
