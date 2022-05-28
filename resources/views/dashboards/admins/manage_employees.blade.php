@@ -35,7 +35,7 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">id</th>
+        <th scope="col">Id</th>
         <th scope="col">Imie</th>
         <th scope="col">Nazwisko</th>
         <th scope="col">e-mail</th>

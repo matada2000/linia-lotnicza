@@ -30,7 +30,7 @@ class FlightController extends Controller
         ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
         ->join('airports AS d','flights.airport_departure_id', '=', 'd.id')
         ->join('airports AS f','flights.airport_arrival_id', '=', 'f.id')
-        ->select('flights.id','aircraft.model','d.name as o','f.name as p','flights.created_at','flights.updated_at')
+        ->select('flights.id','aircraft.model','d.name as o','flights.departure_time','f.name as p','flights.arrival_time','flights.created_at','flights.updated_at')
         ->get();
 
         return view('dashboards.admins.schedule_flights',compact('max','users','flights'));
@@ -62,13 +62,17 @@ class FlightController extends Controller
         request()->validate([
             'aircraft_id' => 'required',
             'airport_departure_id' => 'required',
+            'departure_time' => 'required',
             'airport_arrival_id' => 'required',
+            'arrival_time' => 'required',
         ]);
 
         Flight::create([
             'aircraft_id' => request('aircraft_id'),
             'airport_departure_id' => request('airport_departure_id'),
+            'departure_time' => request('departure_time'),
             'airport_arrival_id' => request('airport_arrival_id'),
+            'arrival_time' => request('arrival_time'),
         ]);
 
         return redirect('/admin/schedule_flights');
@@ -98,7 +102,13 @@ class FlightController extends Controller
         $airports = Airport::orderBy('name','ASC')->get();
         $max = DB::table('users')->max('id');
 
-        return view('dashboards.admins.edits.schedule_flights',compact('users','max','aircrafts','airports','flight'));
+        $dt1 = \DateTime::createFromFormat('Y-m-d H:i:s', $flight->departure_time);
+        $date1 = $dt1->format('Y-m-d\TH:i:s');
+
+        $dt2 = \DateTime::createFromFormat('Y-m-d H:i:s', $flight->arrival_time);
+        $date2 = $dt2->format('Y-m-d\TH:i:s');
+
+        return view('dashboards.admins.edits.schedule_flights',compact('users','max','aircrafts','airports','flight','date1','date2'));
     }
 
     /**
@@ -113,13 +123,17 @@ class FlightController extends Controller
         request()->validate([
             'aircraft_id' => 'required',
             'airport_departure_id' => 'required',
+            'departure_time' => 'required',
             'airport_arrival_id' => 'required',
+            'arrival_time' => 'required',
         ]);
 
         $flight->update([
             'aircraft_id' => request('aircraft_id'),
             'airport_departure_id' => request('airport_departure_id'),
+            'departure_time' => request('departure_time'),
             'airport_arrival_id' => request('airport_arrival_id'),
+            'arrival_time' => request('arrival_time'),
         ]);
 
         return redirect('/admin/schedule_flights');

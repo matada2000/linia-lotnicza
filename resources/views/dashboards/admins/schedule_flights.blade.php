@@ -16,7 +16,7 @@
   }
 
   .input2 {
-    width: 35%;
+    width: 50%;
     font-size: 18px;
     background-color: ;
     border-radius: 25px;
@@ -42,10 +42,12 @@
         <th scope="col">Id</th>
         <th scope="col">Samolot</th>
         <th scope="col">Odlot</th>
+        <th scope="col">Data Odlotu</th>
         <th scope="col">Przylot</th>
+        <th scope="col">Data Przylotu</th>
         <th scope="col">Stworzone</th>
         <th scope="col">Zaktualizowane</th>
-        <th width="20%">Zarządzaj</th>
+        <th width="15%">Zarządzaj</th>
       </tr>
     </thead>
     <tbody>
@@ -54,7 +56,9 @@
           <th scope="row">{{ $flight->id }}</th>
           <td>{{ $flight->model}}</td>
           <td>{{ $flight->o }}</td>
+          <td>{{ $flight->departure_time }}</td>
           <td>{{ $flight->p }}</td>
+          <td>{{ $flight->arrival_time }}</td>
           <td>{{ $flight->created_at }}</td>
           <td>{{ $flight->updated_at }}</td>
           <td><form action="/admin/schedule_flights/{{$flight->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>

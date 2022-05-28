@@ -19,7 +19,7 @@ class Flight extends Model
     use HasFactory;
 
     protected $fillable = [
-        'aircraft_id', 'airport_departure_id', 'airport_arrival_id'
+        'aircraft_id', 'airport_departure_id', 'departure_time', 'airport_arrival_id', 'arrival_time'
     ];
 
     public function users(): BelongsToMany

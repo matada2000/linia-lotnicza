@@ -35,10 +35,10 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">id</th>
-        <th scope="col">name</th>
-        <th scope="col">country</th>
-        <th scope="col">city</th>
+        <th scope="col">Id</th>
+        <th scope="col">Nazwa</th>
+        <th scope="col">Kraj</th>
+        <th scope="col">Miasto</th>
         <th scope="col">Stworzone</th>
         <th scope="col">Zaktualizowane</th>
         <th width="20%">Zarządzaj</th>

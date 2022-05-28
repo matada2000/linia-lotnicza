@@ -35,7 +35,7 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">id</th>
+        <th scope="col">Id</th>
         <th scope="col">Model</th>
         <th scope="col">Liczba siedzeń</th>
         <th scope="col">Stworzone</th>

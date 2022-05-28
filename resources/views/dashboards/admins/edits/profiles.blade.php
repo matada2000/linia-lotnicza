@@ -29,12 +29,12 @@
     <thead>
     
       <tr>
-        <th scope="col"><label for="name">Imie</label></th>
-        <th scope="col"><label for="surname">Nazwisko</label></th>
-        <th scope="col"><label for="email">E-mail</label></th>
-        <th scope="col"><label for="password">Hasło</label></th>
-        <th scope="col"><label for="password-confirm">Powtórz Hasło</label></th>
-        <th width="25%"><label for="manage">Zarządzaj</label></th>
+        <th scope="col"><label for="name">Imie:</label></th>
+        <th scope="col"><label for="surname">Nazwisko:</label></th>
+        <th scope="col"><label for="email">E-mail:</label></th>
+        <th scope="col"><label for="password">Hasło:</label></th>
+        <th scope="col"><label for="password-confirm">Powtórz Hasło:</label></th>
+        <th width="25%"><label for="manage">Zarządzaj:</label></th>
       </tr>
     </thead>
     <tbody>
