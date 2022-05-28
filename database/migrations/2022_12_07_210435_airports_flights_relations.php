@@ -14,9 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::table('flights', function (Blueprint $table) {
-            $table->unsignedBigInteger('airport_departure_id')->nullable;
+            $table->unsignedBigInteger('airport_departure_id')->nullable();
             $table->foreign('airport_departure_id')->references('id')->on('airports');
-            $table->unsignedBigInteger('airport_arrival_id')->nullable;
+            $table->unsignedBigInteger('airport_arrival_id')->nullable();
             $table->foreign('airport_arrival_id')->references('id')->on('airports');
         });
     }
