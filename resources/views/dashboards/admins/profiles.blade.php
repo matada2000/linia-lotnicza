@@ -69,6 +69,6 @@
   @endforeach
   </table>
 
-<center><form action="/admin/profiles/{{$user->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></center>
+<center><form action="/admin/profiles/{{Auth::user()->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></center>
 
 @endsection
