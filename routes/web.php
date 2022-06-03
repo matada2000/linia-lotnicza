@@ -123,6 +123,9 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
 
     //Tickets
     Route::get('ticket',[UserController::class,'ticket'])->name('user.tickets');
+    Route::get('ticket',[TicketController::class,'index'])->name('user.tickets');
+    Route::get('tickets_list/{flight}/tickets',[TicketController::class,'list']);
+
 
     //Reservations
     Route::get('reservation',[UserController::class,'reservation'])->name('user.reservations');

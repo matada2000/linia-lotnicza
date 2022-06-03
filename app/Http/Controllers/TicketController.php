@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ticket;
+use App\Models\Flight;
+use App\Models\Aircraft;
+use App\Models\Airport;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class TicketController extends Controller
 {
@@ -14,9 +20,24 @@ class TicketController extends Controller
      */
     public function index()
     {
-        return view('tickets', [
-            'tickets' => Ticket::all()
-        ]);
+        //SELECT s.model, l.name, d.name FROM flights AS f JOIN aircraft AS s ON f.aircraft_id = s.id JOIN airports AS l ON f.airport_departure_id = l.id JOIN airports AS d ON f.airport_arrival_id = d.id;
+
+        $flights = DB::table('flights')
+        ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
+        ->join('airports AS d','flights.airport_departure_id', '=', 'd.id')
+        ->join('airports AS f','flights.airport_arrival_id', '=', 'f.id')
+        ->select('flights.id','aircraft.model','d.name as o','flights.departure_time','f.name as p','flights.arrival_time')
+        ->get();
+
+        return view('dashboards.users.tickets',compact('flights'));
+    }
+
+    public function list(Flight $flight)
+    {  
+        $aircrafts = Aircraft::all();
+        $airports = Airport::all();
+
+        return view('dashboards.users.tickets_list',compact('aircrafts','airports','flight'));
     }
 
     /**
@@ -26,7 +47,7 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

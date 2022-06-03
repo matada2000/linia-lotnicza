@@ -18,7 +18,6 @@
   .input2 {
     width: 25%;
     font-size: 18px;
-    background-color: ;
     border-radius: 25px;
     border: none;
     background-color: LightGray;
