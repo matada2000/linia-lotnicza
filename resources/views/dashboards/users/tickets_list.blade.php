@@ -74,7 +74,7 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Normalny</h4>
+            <h4 class="my-0 fw-normal">Ekonomiczna</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><h1>$29<small class="text-muted fw-light">/mo</small></h1></h1>
@@ -89,7 +89,7 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm">
           <div class="card-header py-3">
-            <h4 class="my-0 fw-normal">Biznesowy</h4>
+            <h4 class="my-0 fw-normal">Biznes</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><h1>$29<small class="text-muted fw-light">/mo</small></h1></h1>
@@ -103,7 +103,7 @@
       <div class="col">
         <div class="card mb-4 rounded-3 shadow-sm border-primary">
           <div class="card-header py-3 text-white bg-primary border-primary">
-            <h4 class="my-0 fw-normal">Ekonomiczny</h4>
+            <h4 class="my-0 fw-normal">Pierwsza</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><h1>$29<small class="text-muted fw-light">/mo</small></h1></h1>
@@ -124,9 +124,9 @@
         <thead>
           <tr>
             <th style="width: 34%;"></th>
-            <th style="width: 22%;">Normalny</th>
-            <th style="width: 22%;">Biznesowy</th>
-            <th style="width: 22%;">Ekonomiczny</th>
+            <th style="width: 22%;">Ekonomiczna</th>
+            <th style="width: 22%;">Biznes</th>
+            <th style="width: 22%;">Pierwsza</th>
           </tr>
         </thead>
         <tbody>
