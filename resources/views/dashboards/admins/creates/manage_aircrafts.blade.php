@@ -28,14 +28,19 @@
     <thead>
       <tr>
         <th scope="col"><label for="model">Model:</label></th>
-        <th scope="col"><label for="number_of_seats">Liczba siedzeń:</label></th>
+        <th scope="col"><label for="number_of_seats_economic">Liczba siedzeń - klasa ekonomiczna:</label></th>
+        <th scope="col"><label for="number_of_seats_bisness">Liczba siedzeń - klasa biznes:</label></th>
+        <th scope="col"><label for="number_of_seats_first">Liczba siedzeń - klasa pierwsza:</label></th>
         <th width="20%"><label for="manage">Zarządzaj:</label></th>
       </tr>
     </thead>
     <tbody>
         <tr>
           <td><input id="model" name="model" class="form-control @error('model') is-invalid @enderror" required autocomplete="model" autofocus></td>
-          <td><input id="number_of_seats" name="number_of_seats" class="form-control @error('number_of_seats') is-invalid @enderror" required autocomplete="number_of_seats" autofocus></td>
+          <td><input id="number_of_seats_economic" name="number_of_seats_economic" class="form-control @error('number_of_seats_economic') is-invalid @enderror" required autocomplete="number_of_seats_economic" autofocus></td>
+          <td><input id="number_of_seats_bisness" name="number_of_seats_bisness" class="form-control @error('number_of_seats_bisness') is-invalid @enderror" required autocomplete="number_of_seats_bisness" autofocus></td>
+          <td><input id="number_of_seats_first" name="number_of_seats_first" class="form-control @error('number_of_seats_first') is-invalid @enderror" required autocomplete="number_of_seats_first" autofocus></td>
+          
           <td>
 
             <button style="background-color:MediumSeaGreen; color: white;">Dodaj</button>

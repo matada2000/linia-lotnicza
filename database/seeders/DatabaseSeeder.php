@@ -50,19 +50,25 @@ class DatabaseSeeder extends Seeder
         //aircrafts
         DB::table('aircraft')->insert([
             'model' => 'Boeing 747',
-            'number_of_seats' => 366,
+            'number_of_seats_economic' => 122,
+            'number_of_seats_bisness' => 122,
+            'number_of_seats_first' => 122,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('aircraft')->insert([
             'model' => 'Boeing 737',
-            'number_of_seats' => 124,
+            'number_of_seats_economic' => 42,
+            'number_of_seats_bisness' => 42,
+            'number_of_seats_first' => 42,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
         DB::table('aircraft')->insert([
             'model' => 'Airbus A330',
-            'number_of_seats' => 247,
+           'number_of_seats_economic' => 82,
+            'number_of_seats_bisness' => 82,
+            'number_of_seats_first' => 82,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

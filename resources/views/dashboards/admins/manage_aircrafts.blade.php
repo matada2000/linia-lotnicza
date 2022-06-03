@@ -37,7 +37,10 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Model</th>
-        <th scope="col">Liczba siedzeń</th>
+        <!--<th scope="col">Liczba siedzeń</th>-->
+        <th scope="col">Liczba siedzeń - klasa biznes</th>
+        <th scope="col">Liczba siedzeń - klasa ekonomiczna</th>
+        <th scope="col">Liczba siedzeń - klasa pierwsza</th>
         <th scope="col">Stworzone</th>
         <th scope="col">Zaktualizowane</th>
         <th width="20%">Zarządzaj</th>
@@ -48,7 +51,9 @@
         <tr>
           <th scope="row">{{ $aircraft->id }}</th>
           <td>{{ $aircraft->model }}</td>
-          <td>{{ $aircraft->number_of_seats }}</td>
+          <td>{{ $aircraft->number_of_seats_economic }}</td>
+          <td>{{ $aircraft->number_of_seats_bisness }}</td>
+          <td>{{ $aircraft->number_of_seats_first }}</td>
           <td>{{ $aircraft->created_at }}</td>
           <td>{{ $aircraft->updated_at }}</td>
           <td><form action="/admin/manage_aircrafts/{{$aircraft->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>

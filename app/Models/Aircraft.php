@@ -10,7 +10,7 @@ class Aircraft extends Model
     use HasFactory;
 
     protected $fillable = [
-        'model', 'number_of_seats'
+        'model', 'number_of_seats_economic', 'number_of_seats_bisness', 'number_of_seats_first'
     ];
 
     public function flights()

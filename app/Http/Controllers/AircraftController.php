@@ -46,12 +46,16 @@ class AircraftController extends Controller
     {
         request()->validate([
             'model' => 'required',
-            'number_of_seats' => 'required',
+            'number_of_seats_economic' => 'required',
+            'number_of_seats_bisness' => 'required',
+            'number_of_seats_first' => 'required',
         ]);
 
         Aircraft::create([
             'model' => request('model'),
-            'number_of_seats' => request('number_of_seats'),
+            'number_of_seats_economic' => request('number_of_seats_economic'),
+            'number_of_seats_bisness' => request('number_of_seats_bisness'),
+            'number_of_seats_first' => request('number_of_seats_first'),
         ]);
 
         return redirect('/admin/manage_aircrafts');
@@ -93,12 +97,16 @@ class AircraftController extends Controller
     {
         request()->validate([
             'model' => 'required',
-            'number_of_seats' => 'required',
+            'number_of_seats_economic' => 'required',
+            'number_of_seats_bisness' => 'required',
+            'number_of_seats_first' => 'required',
         ]);
 
         $aircraft->update([
             'model' => request('model'),
-            'number_of_seats' => request('number_of_seats'),
+            'number_of_seats_economic' => request('number_of_seats_economic'),
+            'number_of_seats_bisness' => request('number_of_seats_bisness'),
+            'number_of_seats_first' => request('number_of_seats_first'),
         ]);
 
         return redirect('/admin/manage_aircrafts');
