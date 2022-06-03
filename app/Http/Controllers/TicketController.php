@@ -40,6 +40,30 @@ class TicketController extends Controller
         return view('dashboards.users.tickets_list',compact('aircrafts','airports','flight'));
     }
 
+    public function buy_economic(Flight $flight)
+    {  
+        $aircrafts = Aircraft::all();
+        $airports = Airport::all();
+
+        return view('dashboards.users.tickets_buy_economic',compact('aircrafts','airports','flight'));
+    }
+
+    public function buy_bisness(Flight $flight)
+    {  
+        $aircrafts = Aircraft::all();
+        $airports = Airport::all();
+
+        return view('dashboards.users.tickets_buy_bisness',compact('aircrafts','airports','flight'));
+    }
+
+    public function buy_first(Flight $flight)
+    {  
+        $aircrafts = Aircraft::all();
+        $airports = Airport::all();
+
+        return view('dashboards.users.tickets_buy_first',compact('aircrafts','airports','flight'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

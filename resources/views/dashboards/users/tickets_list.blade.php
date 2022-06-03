@@ -11,6 +11,17 @@
         user-select: none;
       }
 
+      .input2 {
+        width: 50%;
+        height: 50px;
+        font-size: 18px;
+        background-color: ;
+        border-radius: 25px;
+        border: none;
+        background-color: MediumSeaGreen;
+        color: white;
+    }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -82,7 +93,8 @@
               <li>pozostała liczba miejsc: </li>
               
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button>
+            <!--<button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button> -->
+            <form action="/user/tickets_list/{{$flight->id}}/tickets/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
           </div>
         </div>
       </div>
@@ -96,7 +108,7 @@
             <ul class="list-unstyled mt-3 mb-4">
               <li>pozostała liczba miejsc: </li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button>
+            <form action="/user/tickets_list/{{$flight->id}}/tickets/tickets_buy_bisness"><input class="input2" type="submit" value="Zakup"></form>
           </div>
         </div>
       </div>
@@ -110,7 +122,7 @@
             <ul class="list-unstyled mt-3 mb-4">
               <li>pozostała liczba miejsc: </li>
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button>
+            <form action="/user/tickets_list/{{$flight->id}}/tickets/tickets_buy_first"><input class="input2" type="submit" value="Zakup"></form>
           </div>
         </div>
       </div>
