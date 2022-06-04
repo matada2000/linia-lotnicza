@@ -65,6 +65,10 @@ class FlightController extends Controller
             'departure_time' => 'required',
             'airport_arrival_id' => 'required',
             'arrival_time' => 'required',
+            'price' => 'required',
+            'available_seat_economic' => 'required',
+            'available_seat_bisness' => 'required',
+            'available_seat_first' => 'required',
         ]);
 
         Flight::create([
@@ -73,6 +77,10 @@ class FlightController extends Controller
             'departure_time' => request('departure_time'),
             'airport_arrival_id' => request('airport_arrival_id'),
             'arrival_time' => request('arrival_time'),
+            'price' => request('price'),
+            'available_seat_economic' => request('available_seat_economic'),
+            'available_seat_bisness' => request('available_seat_bisness'),
+            'available_seat_first' => request('available_seat_first'),
         ]);
 
         return redirect('/admin/schedule_flights');
@@ -126,6 +134,10 @@ class FlightController extends Controller
             'departure_time' => 'required',
             'airport_arrival_id' => 'required',
             'arrival_time' => 'required',
+            'price' => 'required',
+            'available_seat_economic' => 'required',
+            'available_seat_bisness' => 'required',
+            'available_seat_first' => 'required',
         ]);
 
         $flight->update([
@@ -134,6 +146,10 @@ class FlightController extends Controller
             'departure_time' => request('departure_time'),
             'airport_arrival_id' => request('airport_arrival_id'),
             'arrival_time' => request('arrival_time'),
+            'price' => request('price'),
+            'available_seat_economic' => request('available_seat_economic'),
+            'available_seat_bisness' => request('available_seat_bisness'),
+            'available_seat_first' => request('available_seat_first'),
         ]);
 
         return redirect('/admin/schedule_flights');

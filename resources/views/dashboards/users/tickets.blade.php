@@ -61,9 +61,9 @@
                 <th width="25%">Przylot:</th>
             </thead>
             <thead>
-                <td><p class="card-text"><h5><span class="te">{{ $flight->o }}</span></h5></p></td>  
+                <td><h5 class="te">{{ $flight->o }}</h5></td>  
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&rsaquo;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td><p class="card-text"><h5><span class="te">{{ $flight->p }}</span></h5></p></td>
+                <td><h5 class="te">{{ $flight->p }}</h5></td>
             </thead>
             <thead>
                 <td><i>{{ $flight->departure_time }}</i></td>  
