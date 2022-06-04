@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Airport;
 use App\Models\Aircraft;
 
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -47,8 +48,23 @@ class FlightController extends Controller
         $aircrafts = Aircraft::all();
         $airports = Airport::orderBy('name','ASC')->get();
         $max = DB::table('users')->max('id');
+        
+        
 
         return view('dashboards.admins.creates.schedule_flights',compact('users','max','aircrafts','airports'));
+    }
+
+    public function create2(Request $request)
+    {
+        $users = User::all();
+        $aircrafts = Aircraft::all();
+        $airports = Airport::orderBy('name','ASC')->get();
+        $max = DB::table('users')->max('id');
+        
+        $data = $request->input('aircraft_id');
+        
+
+        return view('dashboards.admins.creates.creates2.schedule_flights',compact('users','max','aircrafts','airports','data'));
     }
 
     /**
@@ -57,8 +73,18 @@ class FlightController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function store2(Request $request)
+    {
+        $data = $request->input('aircraft_id');
+
+        return redirect('/admin/schedule_flights/create');
+    }
+
     public function store(Request $request)
     {
+        
+
         request()->validate([
             'aircraft_id' => 'required',
             'airport_departure_id' => 'required',

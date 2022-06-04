@@ -109,6 +109,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::get('schedule_flights/{flight}/edit',[FlightController::class, 'edit']);
     Route::put('schedule_flights/{flight}',[FlightController::class, 'update']);
     Route::get('schedule_flights/create',[FlightController::class, 'create']);
+    Route::get('schedule_flights/create/create',[FlightController::class, 'create2']);
+    Route::post('schedule_flights/create',[FlightController::class, 'store2']);
     Route::post('schedule_flights',[FlightController::class, 'store']);
     Route::delete('schedule_flights/{flight}',[FlightController::class,'destroy']);
 
