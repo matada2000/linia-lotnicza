@@ -12,6 +12,7 @@
     border-radius: 25px;
     border: none; 
     width: 13%;
+    margin-left: 5px;
   }
 </style>
 
@@ -20,12 +21,6 @@
 <br>
 
 <form method="POST" action="/admin/schedule_flights/{{$flight->id}}">
-
-<script type="text/javascript">
-         $(function () {
-             $('#datetimepicker1').datetimepicker();
-         });
-      </script>
 
   @method('PUT')
 
@@ -36,11 +31,11 @@
       <tr>
         <th scope="col"><label for="aircraft_id">Samolot:</label></th>
         <td>
-          <select style="width: 50%;" id="aircraft_id" name="aircraft_id" class="form-control @error('aircraft_id') is-invalid @enderror" required autocomplete="aircraft_id" onfocus='this.size=5;' onblur='this.size=1;' onchange='this.size=1; this.blur();'>
             @foreach($aircrafts as $aircraft)
-              <option value="{{ $aircraft->id }}" @if($aircraft->id == $flight->aircraft_id) selected @endif >{{ $aircraft->model }}>{{ $aircraft->model }}</option>
-            @endforeach
-          </select> 
+              @if($aircraft->id == $flight->aircraft_id)
+                <input style="width: 50%; background-color: lightgray;" id="aircraft_id" name="aircraft_id" class="form-control @error('aircraft_id') is-invalid @enderror" value="{{ $aircraft->model }}" disabled>
+              @endif
+            @endforeach 
         </td>
       </tr>
     </tbody>
@@ -59,7 +54,7 @@
     <tbody>
       <tr>
         <th scope="col"><label for="departure_time">Odlot - czas:</label></th>
-        <td><input style="width: 50%;" type="datetime-local" id='departure_time' name="departure_time" value="{{$date1}}" step="1" class="form-control @error('departure_time') is-invalid @enderror" required autocomplete="departure_time" autofocus></td>
+        <td><input style="width: 50%;" type="datetime-local" id='departure_time' value="{{$date1}}" name="departure_time" step="1" class="form-control @error('departure_time') is-invalid @enderror" required autocomplete="departure_time" autofocus></td>
       </tr>
     </tbody>
     <tbody>
@@ -77,7 +72,7 @@
     <tbody>
       <tr>
         <th scope="col"><label for="arrival_time">Przylot - czas:</label></th>
-        <td><input style="width: 50%;" type="datetime-local" id='arrival_time' name="arrival_time" step="1" value="{{$date2}}" class="form-control @error('arrival_time') is-invalid @enderror" required autocomplete="arrival_time" autofocus></td>
+        <td><input style="width: 50%;" type="datetime-local" id='arrival_time' value="{{$date2}}" name="arrival_time" step="1"  class="form-control @error('arrival_time') is-invalid @enderror" required autocomplete="arrival_time" autofocus></td>
       </tr>
     </tbody>
     <tr>
@@ -87,37 +82,77 @@
     </tbody>
       <tr>
         <th scope="col"><label for="available_seat_economic">Liczba miejsc dla klasy ekonomicznej:</label></th>
-        <td><input style="width: 50%;" type="number" id='available_seat_economic' name="available_seat_economic" step="1" value="{{$flight->available_seat_economic}}" class="form-control @error('available_seat_economic') is-invalid @enderror" required autocomplete="available_seat_economic" autofocus></td>
+        <td>
+          @foreach($aircrafts as $aircraft)
+            @if($aircraft->id == $flight->aircraft_id)
+              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_economic' value="{{$aircraft->number_of_seats_economic}}" name="available_seat_economic" step="1" class="form-control @error('available_seat_economic') is-invalid @enderror"  autofocus disabled>
+            @endif
+          @endforeach
+        </td>
       </tr>
     </tbody>
     </tbody>
       <tr>
         <th scope="col"><label for="available_seat_bisness">Liczba miejsc dla klasy biznesowej:</label></th>
-        <td><input style="width: 50%;" type="number" id='available_seat_bisness' name="available_seat_bisness" step="1" value="{{$flight->available_seat_bisness}}" class="form-control @error('available_seat_bisness') is-invalid @enderror" required autocomplete="available_seat_bisness" autofocus></td>
+        <td>
+        @foreach($aircrafts as $aircraft)
+          @if($aircraft->id == $flight->aircraft_id)
+            <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_bisness' name="available_seat_bisness" value="{{$aircraft->number_of_seats_bisness}}" step="1"  class="form-control @error('available_seat_bisness') is-invalid @enderror"  autofocus disabled>
+          @endif
+        @endforeach
+        </td>
       </tr>
     </tbody>
     </tbody>
       <tr>
         <th scope="col"><label for="available_seat_first">Liczba miejsc dla klasy pierwszej:</label></th>
-        <td><input style="width: 50%;" type="number" id='available_seat_first' name="available_seat_first" step="1" value="{{$flight->available_seat_first}}" class="form-control @error('available_seat_first') is-invalid @enderror" required autocomplete="available_seat_first" autofocus></td>
+        <td>
+          @foreach($aircrafts as $aircraft)
+            @if($aircraft->id == $flight->aircraft_id)
+              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_first' name="available_seat_first" value="{{$aircraft->number_of_seats_first}}" step="1"  class="form-control @error('available_seat_first') is-invalid @enderror"  autofocus disabled>
+            @endif
+          @endforeach
+        </td>
       </tr>
     </tbody>
-
     <tbody>
       <tr>
         <th width="15%"><label for="manage">Zarządzaj:</label></th>
         <td>
 
-        <button style="background-color:MediumSeaGreen; color: white; float:left; margin-right: 5px;">Zmień</button>
-        <button style="background-color:DodgerBlue; float:left; margin-right: 5px;"><a style="color: white;" href="/admin/schedule_flights">Anuluj</a></button>
-        </form>
-        <form method="POST" action="/admin/schedule_flights/{{$flight->id}}"> @csrf  @method('DELETE') <button style=" background-color:Tomato; color: white;">Usuń</button></form>      
+        @foreach($aircrafts as $aircraft)
+              @if($aircraft->id == $flight->aircraft_id)
+                <input style="width: 50%; background-color: lightgray;" id="aircraft_id" name="aircraft_id" class="form-control @error('aircraft_id') is-invalid @enderror" value="{{ $aircraft->id }}" hidden>
+              @endif
+        @endforeach
+
+        @foreach($aircrafts as $aircraft)
+            @if($aircraft->id == $flight->aircraft_id)
+              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_economic' value="{{$aircraft->number_of_seats_economic}}" name="available_seat_economic" step="1" class="form-control @error('available_seat_economic') is-invalid @enderror" required autocomplete="available_seat_economic"  autofocus hidden>
+            @endif
+        @endforeach
+
+        @foreach($aircrafts as $aircraft)
+          @if($aircraft->id == $flight->aircraft_id)
+            <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_bisness' name="available_seat_bisness" value="{{$aircraft->number_of_seats_bisness}}" step="1"  class="form-control @error('available_seat_bisness') is-invalid @enderror" required autocomplete="available_seat_bisness" autofocus hidden>
+          @endif
+        @endforeach
+
+        @foreach($aircrafts as $aircraft)
+            @if($aircraft->id == $flight->aircraft_id)
+              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_first' name="available_seat_first" value="{{$aircraft->number_of_seats_first}}" step="1"  class="form-control @error('available_seat_first') is-invalid @enderror" required autocomplete="available_seat_first" autofocus hidden>
+            @endif
+        @endforeach
+
+          <button style="background-color:MediumSeaGreen; color: white; float: left;">Zmień</button>
+          <button style="background-color:DodgerBlue; float: left;"><a style="color: white;" href="/admin/schedule_flights">Anuluj</a></button>
+          </form>
+          <form method="POST" action="/admin/schedule_flights/{{$flight->id}}"> @csrf  @method('DELETE') <button style="background-color:Tomato; color: white;">Usuń</button></form>
+        
         </td>
       </tr>
     </tbody>
   </table>
-
-</form>
 
 <!--
 <table class="table">

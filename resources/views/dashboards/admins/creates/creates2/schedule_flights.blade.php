@@ -144,7 +144,7 @@
         @endforeach
 
         <button style="background-color:MediumSeaGreen; color: white;">Dodaj</button>&nbsp;&nbsp;
-        <button style="background-color:#307D7E;"><a style="color: white;" href="/admin/schedule_flights/pre-create">Cofnij</a></button>
+        <button style="background-color:#307D7E;"><a style="color: white;" href="/admin/schedule_flights/pre-create">Cofnij</a></button>&nbsp;&nbsp;
         <button style="background-color:DodgerBlue;"><a style="color: white;" href="/admin/schedule_flights">Anuluj</a></button>
         
         </td>
