@@ -23,6 +23,10 @@
     border: none;
     background-color: LightGray;
   }
+
+  .w-5{
+    display: none;
+  }
 </style>
 
 <h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Zarządzanie Samolotami</center></h1>
@@ -61,5 +65,9 @@
       @endforeach
       </tbody>
   </table>
+
+  <span>
+    {{$aircrafts->links()}}
+  </span>
 
 @endsection
