@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('flight_user', function (Blueprint $table) {
-            $table->foreignId('flight_id')->constrained();
-            $table->foreignId('user_id')->constrained();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('flight_id')->nullable();
+            $table->foreign('flight_id')->references('id')->on('flights');
         });
     }
 
@@ -26,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flight_user');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_flight_id_foreign');
+            $table->dropColumn('flight_id');
+        });
     }
 };

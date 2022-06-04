@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->boolean('role')->nullable();
+            $table->string('description')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

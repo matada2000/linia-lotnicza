@@ -23,6 +23,7 @@ class User extends Authenticatable
         'surname',
         'email',
         'role',
+        'description',
         'password',
     ];
 
@@ -45,10 +46,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function flights(): BelongsToMany
+    /*public function flights(): BelongsToMany
     {
         return $this->belongsToMany(Flight::class);
-    }
+    }*/
 
     public function salaries()
     {
