@@ -13,7 +13,8 @@ use App\Http\Controllers\LuggageController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\EmployeeProfileController;
+use App\Http\Controllers\UserProfileController;
 
 
 
@@ -121,7 +122,13 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
     Route::get('dashboard',[UserController::class,'index'])->name('user.dashboard');
-    Route::get('profile',[UserController::class,'profile'])->name('user.profile');
+    //Route::get('profile',[UserController::class,'profile'])->name('user.profile');
+
+    //Profile
+    Route::get('profiles',[UserProfileController::class,'lista'])->name('user.profiles');
+    Route::get('profiles/{profile}/edit',[UserProfileController::class, 'edit']);
+    Route::put('profiles/{profile}',[UserProfileController::class, 'update']);
+    Route::post('profiles',[UserProfileController::class, 'store']);
 
     //Tickets
     Route::get('ticket',[UserController::class,'ticket'])->name('user.tickets');
@@ -138,8 +145,14 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
 
 Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], function(){
     Route::get('dashboard',[EmployeeController::class,'index'])->name('employee.dashboard');
-    Route::get('profile',[EmployeeController::class,'profile'])->name('employee.profile');
+    //Route::get('profile',[EmployeeController::class,'profile'])->name('employee.profile');
     Route::get('settings',[EmployeeController::class,'settings'])->name('employee.settings');
+
+    //Profile
+    Route::get('profiles',[EmployeeProfileController::class,'lista'])->name('employee.profiles');
+    Route::get('profiles/{profile}/edit',[EmployeeProfileController::class, 'edit']);
+    Route::put('profiles/{profile}',[EmployeeProfileController::class, 'update']);
+    Route::post('profiles',[EmployeeProfileController::class, 'store']);
 
 });
 

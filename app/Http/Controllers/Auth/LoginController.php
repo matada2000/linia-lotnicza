@@ -31,10 +31,13 @@ class LoginController extends Controller
     protected $redirectTo = RouteServiceProvider::HOME;
     protected function redirectTo(){
         if( Auth()->user()->role == 1){
-            return route('admin.dashboard','admin.profiles');
+            return route('admin.dashboard');
         }
         elseif( Auth()->user() == 2){
-            return route('user.dashboard','admin.profiles');
+            return route('user.dashboard');
+        }
+        elseif( Auth()->user() == 3){
+            return route('employee.dashboard');
         }
     }
 
