@@ -34,6 +34,7 @@
         <th scope="col"><label for="email">E-mail:</label></th>
         <th scope="col"><label for="password">Hasło:</label></th>
         <th scope="col"><label for="password-confirm">Powtórz Hasło:</label></th>
+        <th scope="col"><label for="description">Opis:</label></th>
         <th width="25%"><label for="manage">Zarządzaj:</label></th>
       </tr>
     </thead>
@@ -44,6 +45,7 @@
           <td><input id="email" name="email" value="{{$employee->email}}" class="form-control @error('email') is-invalid @enderror" required autocomplete="email"></td>
           <td><input id="password" name="password" type="password" value="{{$employee->password}}" class="form-control @error('password') is-invalid @enderror" required autocomplete="new-password"></td>
           <td><input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"></td>
+          <td><input id="description" name="description" value="{{$employee->description}}" class="form-control @error('description') is-invalid @enderror" required autocomplete="description"></td>
           <td>
             <input type="hidden" id="role" name="role" value="3">
           <button style="background-color:MediumSeaGreen; color: white;">Zmień</button><br>

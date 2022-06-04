@@ -38,6 +38,7 @@
         <th scope="col">Imie</th>
         <th scope="col">Nazwisko</th>
         <th scope="col">e-mail</th>
+        <th scope="col">Opis</th>
         <th scope="col">Stworzone</th>
         <th scope="col">Zaktualizowane</th>
         <th width="25%">Zarządzaj</th>
@@ -50,7 +51,8 @@
           <th scope="row">{{ $user->id }}</th>
           <td>{{ $user->name }}</td>
           <td>{{ $user->surname }}</td>
-          <td>{{ $user->email }}</td> 
+          <td>{{ $user->email }}</td>
+          <td>{{ $user->description }}</td>  
           <td>{{ $user->created_at }}</td>
           <td>{{ $user->updated_at }}</td>
           <td><form action="/admin/manage_employees/{{$user->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>

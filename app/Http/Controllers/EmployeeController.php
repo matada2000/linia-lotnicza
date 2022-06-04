@@ -62,6 +62,7 @@ class EmployeeController extends Controller
             'surname' => 'required',
             'email' => 'required',
             'role' => 'required',
+            'description' => 'required',
             'password' => 'required',
         ]);
 
@@ -70,6 +71,7 @@ class EmployeeController extends Controller
             'surname' => request('surname'),
             'email' => request('email'),
             'role' => request('role'),
+            'description' => request('description'),
             'password' => Hash::make(request('password')),
         ]);
 
@@ -115,6 +117,7 @@ class EmployeeController extends Controller
             'surname' => 'required',
             'email' => 'required',
             'role' => 'required',
+            'description' => 'required',
             'password' => 'required',
         ]);
 
@@ -123,6 +126,7 @@ class EmployeeController extends Controller
             'surname' => request('surname'),
             'email' => request('email'),
             'role' => request('role'),
+            'description' => request('description'),
             'password' => Hash::make(request('password')),
         ]);
 
