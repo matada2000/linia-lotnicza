@@ -7,6 +7,7 @@ use App\Models\Flight;
 use App\Models\Aircraft;
 use App\Models\Airport;
 use Illuminate\Http\Request;
+use PDF;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -31,6 +32,21 @@ class TicketController extends Controller
 
         return view('dashboards.users.tickets',compact('flights'));
     }
+
+    public function index2(){
+
+        $tickets = Ticket::all();
+  
+        return view('dashboards.users.reservations', compact('tickets'));
+      }
+
+    public function downloadPDF($id){
+        $ticket = Ticket::find($id);
+  
+        $pdf = PDF::loadView('dashboards.users.edits.pdf', compact('ticket'));
+        return $pdf->download('invoice.pdf');
+  
+      }
 
     public function list(Flight $flight)
     {  

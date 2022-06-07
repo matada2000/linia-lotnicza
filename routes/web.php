@@ -142,6 +142,9 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
 
     //Reservations
     Route::get('reservation',[UserController::class,'reservation'])->name('user.reservations');
+    Route::get('reservations',[TicketController::class,'index2'])->name('user.reservations');
+    Route::get('reservations/{id}/pdf',[TicketController::class,'downloadPDF']);
+    //Route::post('tickets',[TicketController::class,'store']);
 
 });
 

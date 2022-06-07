@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          {{$ticket->id}}
+        </td>
+        <td>
+          {{$ticket->class}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{$ticket->seat_number}}
+        </td>
+        <td>
+          {{$ticket->user_id}}
+        </td>
+        <td>
+          {{$ticket->flight_id}}
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
