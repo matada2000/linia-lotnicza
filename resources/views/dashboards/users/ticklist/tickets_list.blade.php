@@ -22,6 +22,17 @@
         color: white;
     }
 
+    .input3 {
+        width: 50%;
+        height: 50px;
+        font-size: 18px;
+        background-color: ;
+        border-radius: 25px;
+        border: none;
+        background-color: lightgray;
+        color: white;
+    }
+
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -105,7 +116,11 @@
               
             </ul>
             <!--<button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button> -->
-            <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
+              @if($flight->available_seat_economic != 0)
+                <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
+              @else
+              <input class="input3" type="submit" value="Zakup" disabled>
+              @endif
           </div>
         </div>
       </div>
