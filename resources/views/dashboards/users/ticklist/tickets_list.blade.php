@@ -99,7 +99,7 @@
             <h4 class="my-0 fw-normal">Ekonomiczna</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price}} zł<small class="text-muted fw-light">/mo</small></h1></h1>
+            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price}} zł<small class="text-muted fw-light"></small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>pozostała liczba miejsc: {{$flight->available_seat_economic}}</li>
               
@@ -115,7 +115,7 @@
             <h4 class="my-0 fw-normal">Biznes</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.2}} zł<small class="text-muted fw-light">/mo</small></h1></h1>
+            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.2}} zł<small class="text-muted fw-light"></small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>pozostała liczba miejsc: {{$flight->available_seat_bisness}}</li>
             </ul>
@@ -129,7 +129,7 @@
             <h4 class="my-0 fw-normal">Pierwsza</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.5}} zł<small class="text-muted fw-light">/mo</small></h1></h1>
+            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.5}} zł<small class="text-muted fw-light"></small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
               <li>pozostała liczba miejsc: {{$flight->available_seat_first}}</li>
             </ul>

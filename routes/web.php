@@ -139,9 +139,10 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
     Route::get('tickets/{flight}/tickets_list/tickets_buy_economic',[TicketController::class,'buy_economic']);
     Route::get('tickets/{flight}/tickets_list/tickets_buy_bisness',[TicketController::class,'buy_bisness']);
     Route::get('tickets/{flight}/tickets_list/tickets_buy_first',[TicketController::class,'buy_first']);
+    Route::post('tickets',[TicketController::class,'store']);
 
     //Reservations
-    Route::get('reservation',[UserController::class,'reservation'])->name('user.reservations');
+    Route::get('reservations',[UserController::class,'reservation'])->name('user.reservations');
     Route::get('reservations',[TicketController::class,'index2'])->name('user.reservations');
     Route::get('reservations/{id}/pdf',[TicketController::class,'downloadPDF']);
     //Route::post('tickets',[TicketController::class,'store']);

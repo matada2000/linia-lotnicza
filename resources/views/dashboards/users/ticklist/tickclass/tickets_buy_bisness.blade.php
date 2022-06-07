@@ -2,6 +2,6 @@
 @section('title','Tickets')
 @section('content')
 
-tickets_buy_economic
+bisness
 
 @endsection

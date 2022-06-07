@@ -53,7 +53,7 @@ class TicketController extends Controller
         $aircrafts = Aircraft::all();
         $airports = Airport::all();
 
-        return view('dashboards.users.tickets_list',compact('aircrafts','airports','flight'));
+        return view('dashboards.users.ticklist.tickets_list',compact('aircrafts','airports','flight'));
     }
 
     public function buy_economic(Flight $flight)
@@ -61,7 +61,7 @@ class TicketController extends Controller
         $aircrafts = Aircraft::all();
         $airports = Airport::all();
 
-        return view('dashboards.users.tickets_buy_economic',compact('aircrafts','airports','flight'));
+        return view('dashboards.users.ticklist.tickclass.tickets_buy_economic',compact('aircrafts','airports','flight'));
     }
 
     public function buy_bisness(Flight $flight)
@@ -69,7 +69,7 @@ class TicketController extends Controller
         $aircrafts = Aircraft::all();
         $airports = Airport::all();
 
-        return view('dashboards.users.tickets_buy_bisness',compact('aircrafts','airports','flight'));
+        return view('dashboards.users.ticklist.tickclass.tickets_buy_bisness',compact('aircrafts','airports','flight'));
     }
 
     public function buy_first(Flight $flight)
@@ -77,7 +77,7 @@ class TicketController extends Controller
         $aircrafts = Aircraft::all();
         $airports = Airport::all();
 
-        return view('dashboards.users.tickets_buy_first',compact('aircrafts','airports','flight'));
+        return view('dashboards.users.ticklist.tickclass.tickets_buy_first',compact('aircrafts','airports','flight'));
     }
 
     /**
@@ -98,7 +98,21 @@ class TicketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'class' => 'required',
+            'seat_number' => 'required',
+            'user_id' => 'required',
+            'flight_id' => 'required',
+        ]);
+
+        Ticket::create([
+            'class' => request('class'),
+            'seat_number' => request('seat_number'),
+            'user_id' => request('user_id'),
+            'flight_id' => request('flight_id'),
+        ]);
+
+        return redirect('/user/tickets');
     }
 
     /**
