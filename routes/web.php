@@ -53,7 +53,7 @@ Route::get('/airports',[App\Http\Controllers\AirportController::class, 'index'])
 Route::get('/aircrafts',[App\Http\Controllers\AircraftController::class, 'index']);
 
 //Route::get('tickets',[TicketController::class,'getData']);
-Route::get('/tickets',[App\Http\Controllers\TicketController::class, 'index']);
+//Route::get('/tickets',[App\Http\Controllers\TicketController::class, 'index']);
 
 //Route::get('salaries',[SalaryController::class,'getData']);
 Route::get('/salaries',[App\Http\Controllers\SalaryController::class, 'index']);
@@ -114,6 +114,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     Route::post('schedule_flights/create',[FlightController::class, 'store2']);
     Route::post('schedule_flights',[FlightController::class, 'store']);
     Route::delete('schedule_flights/{flight}',[FlightController::class,'destroy']);
+    Route::get('schedule_flights/{flight}/add_employee',[FlightController::class, 'add_employee']);
+    Route::get('schedule_flights/{flight}/add_employee_2',[AddEmployeeToFlightController::class, 'add_employee']);
 
     //Poczta
     Route::get('message_offices',[AdminController::class,'message_offices'])->name('admin.message_offices');
@@ -131,12 +133,12 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
     Route::post('profiles',[UserProfileController::class, 'store']);
 
     //Tickets
-    Route::get('ticket',[UserController::class,'ticket'])->name('user.tickets');
-    Route::get('ticket',[TicketController::class,'index'])->name('user.tickets');
-    Route::get('tickets_list/{flight}/tickets',[TicketController::class,'list']);
-    Route::get('tickets_list/{flight}/tickets/tickets_buy_economic',[TicketController::class,'buy_economic']);
-    Route::get('tickets_list/{flight}/tickets/tickets_buy_bisness',[TicketController::class,'buy_bisness']);
-    Route::get('tickets_list/{flight}/tickets/tickets_buy_first',[TicketController::class,'buy_first']);
+    Route::get('tickets',[UserController::class,'ticket'])->name('user.tickets');
+    Route::get('tickets',[TicketController::class,'index'])->name('user.tickets');
+    Route::get('tickets/{flight}/tickets_list',[TicketController::class,'list']);
+    Route::get('tickets/{flight}/tickets_list/tickets_buy_economic',[TicketController::class,'buy_economic']);
+    Route::get('tickets/{flight}/tickets_list/tickets_buy_bisness',[TicketController::class,'buy_bisness']);
+    Route::get('tickets/{flight}/tickets_list/tickets_buy_first',[TicketController::class,'buy_first']);
 
     //Reservations
     Route::get('reservation',[UserController::class,'reservation'])->name('user.reservations');

@@ -85,7 +85,7 @@
 <div class="container py-3">
   <header>
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <a href="/user/ticket"><button type="button" class="w-50 btn btn-lg btn-outline-primary">Anuluj</button></a>
+      <a href="/user/tickets"><button type="button" class="w-50 btn btn-lg btn-outline-primary">Anuluj</button></a>
       <br><br>
       <h1 class="display-4 fw-normal">Wybierz Klase</h1>
     </div>
@@ -99,13 +99,13 @@
             <h4 class="my-0 fw-normal">Ekonomiczna</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><h1>$29<small class="text-muted fw-light">/mo</small></h1></h1>
+            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price}} zł<small class="text-muted fw-light">/mo</small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>pozostała liczba miejsc: </li>
+              <li>pozostała liczba miejsc: {{$flight->available_seat_economic}}</li>
               
             </ul>
             <!--<button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button> -->
-            <form action="/user/tickets_list/{{$flight->id}}/tickets/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
+            <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
           </div>
         </div>
       </div>
@@ -115,11 +115,11 @@
             <h4 class="my-0 fw-normal">Biznes</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><h1>$29<small class="text-muted fw-light">/mo</small></h1></h1>
+            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.2}} zł<small class="text-muted fw-light">/mo</small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>pozostała liczba miejsc: </li>
+              <li>pozostała liczba miejsc: {{$flight->available_seat_bisness}}</li>
             </ul>
-            <form action="/user/tickets_list/{{$flight->id}}/tickets/tickets_buy_bisness"><input class="input2" type="submit" value="Zakup"></form>
+            <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_bisness"><input class="input2" type="submit" value="Zakup"></form>
           </div>
         </div>
       </div>
@@ -129,11 +129,11 @@
             <h4 class="my-0 fw-normal">Pierwsza</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title"><h1>$29<small class="text-muted fw-light">/mo</small></h1></h1>
+            <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.5}} zł<small class="text-muted fw-light">/mo</small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>pozostała liczba miejsc: </li>
+              <li>pozostała liczba miejsc: {{$flight->available_seat_first}}</li>
             </ul>
-            <form action="/user/tickets_list/{{$flight->id}}/tickets/tickets_buy_first"><input class="input2" type="submit" value="Zakup"></form>
+            <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_first"><input class="input2" type="submit" value="Zakup"></form>
           </div>
         </div>
       </div>

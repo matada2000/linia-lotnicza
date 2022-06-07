@@ -23,6 +23,15 @@
     border: none;
     background-color: LightGray;
   }
+
+  .input3 {
+    width: 75%;
+    font-size: 18px;
+    background-color: ;
+    border-radius: 25px;
+    border: none;
+    background-color: LightGray;
+  }
 </style>
 
 <h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Zarządzanie Harmonogramem Lotów</center></h1>
@@ -61,7 +70,9 @@
           <td>{{ $flight->arrival_time }}</td>
           <td>{{ $flight->created_at }}</td>
           <td>{{ $flight->updated_at }}</td>
-          <td><form action="/admin/schedule_flights/{{$flight->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>
+          <td><form action="/admin/schedule_flights/{{$flight->id}}/edit"><input class="input2" type="submit" value="Edycja"></form>
+          <br>
+          <form action="/admin/schedule_flights/{{$flight->id}}/add_employee"><input class="input3" type="submit" value="Dodaj pracownika"></form></td>
         </tr>
       @endforeach
       </tbody>

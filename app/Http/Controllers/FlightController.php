@@ -181,6 +181,38 @@ class FlightController extends Controller
         return redirect('/admin/schedule_flights');
     }
 
+
+    public function add_employee(Flight $flight)
+    {
+        
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+        $flights = DB::table('flights')
+        ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
+        ->join('airports AS d','flights.airport_departure_id', '=', 'd.id')
+        ->join('airports AS f','flights.airport_arrival_id', '=', 'f.id')
+        ->select('flights.id','aircraft.model','d.name as o','flights.departure_time','f.name as p','flights.arrival_time','flights.created_at','flights.updated_at')
+        ->get();
+
+        return view('dashboards.admins.edits.add_employee',compact('users','max','flight'));
+    }
+
+    public function add_employee_2(Flight $flight)
+    {
+        
+        $users = User::all();
+        $max = DB::table('users')->max('id');
+        $flights = DB::table('flights')
+        ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
+        ->join('airports AS d','flights.airport_departure_id', '=', 'd.id')
+        ->join('airports AS f','flights.airport_arrival_id', '=', 'f.id')
+        ->select('flights.id','aircraft.model','d.name as o','flights.departure_time','f.name as p','flights.arrival_time','flights.created_at','flights.updated_at')
+        ->get();
+
+        return view('dashboards.admins.edits.add_employee',compact('users','max','flight'));
+    }
+
+
     /**
      * Remove the specified resource from storage.
      *

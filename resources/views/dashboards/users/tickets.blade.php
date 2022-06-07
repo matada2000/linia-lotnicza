@@ -71,7 +71,7 @@
                 <td><i>{{ $flight->arrival_time }}</i></td>
             </thead>
           </table>
-          <form action="/user/tickets_list/{{$flight->id}}/tickets"><input class="input2" type="submit" value="Zobacz bilety"></form>
+          <form action="/user/tickets/{{$flight->id}}/tickets_list"><input class="input2" type="submit" value="Zobacz bilety"></form>
         </div>
       </div>
     @endforeach
