@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             #$table->id_users();
             $table->integer('ammount');
+            $table->date('period_from');
+            $table->date('period_to');
             $table->timestamps();
         });
     }

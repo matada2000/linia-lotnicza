@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Airport;
+use App\Models\Salary;
 
 use Illuminate\Support\Facades\Hash;
 
@@ -43,6 +44,12 @@ class AdminController extends Controller
 
         $data = User::all();
         return view('dashboards.admins.manage_aircrafts',['users'=>$data],compact('max'));
+    }
+    function manage_salaries(){
+        $max = DB::table('users')->max('id');
+
+        $data = User::all();
+        return view('dashboards.admins.manage_salaries',['users'=>$data],compact('max'));
     }
     function schedule_flights(){
         $max = DB::table('users')->max('id');

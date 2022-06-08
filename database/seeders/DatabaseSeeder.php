@@ -552,9 +552,11 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //salaries
-        DB::table('salaries')->insert([
+        /*DB::table('salaries')->insert([
             'ammount' => 7500,
-            'user_id' => 1,
+            'user_id' => 2,
+            'period_from' => '2022-05-01',
+            'period_to' => '2022-06-01',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
@@ -563,6 +565,6 @@ class DatabaseSeeder extends Seeder
             'user_id' => 3,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        ]);
+        ]);*/
     }
 }

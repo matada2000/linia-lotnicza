@@ -56,7 +56,7 @@ Route::get('/aircrafts',[App\Http\Controllers\AircraftController::class, 'index'
 //Route::get('/tickets',[App\Http\Controllers\TicketController::class, 'index']);
 
 //Route::get('salaries',[SalaryController::class,'getData']);
-Route::get('/salaries',[App\Http\Controllers\SalaryController::class, 'index']);
+//Route::get('/salaries',[App\Http\Controllers\SalaryController::class, 'index']);
 
 //Route::get('luggages',[LuggageController::class,'getData']);
 Route::get('/luggages',[App\Http\Controllers\LuggageController::class, 'index']);
@@ -120,6 +120,15 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     //Poczta
     Route::get('message_offices',[AdminController::class,'message_offices'])->name('admin.message_offices');
 
+    //Salaries
+    Route::get('manage_salaries',[AdminController::class,'manage_salaries'])->name('admin.manage_salaries');
+    Route::get('manage_salaries',[SalaryController::class,'index'])->name('admin.manage_salaries');
+    Route::get('manage_salaries/{salary}/edit',[SalaryController::class, 'edit']);
+    Route::put('manage_salaries/{salary}',[SalaryController::class, 'update']);
+    Route::get('manage_salaries/create',[SalaryController::class, 'create']);
+    Route::post('manage_salaries',[SalaryController::class, 'store']);
+    Route::delete('manage_salaries/{salary}',[SalaryController::class,'destroy']);
+
 });
 
 Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
@@ -159,6 +168,7 @@ Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], functi
     Route::get('profiles/{profile}/edit',[EmployeeProfileController::class, 'edit']);
     Route::put('profiles/{profile}',[EmployeeProfileController::class, 'update']);
     Route::post('profiles',[EmployeeProfileController::class, 'store']);
+
 
 });
 

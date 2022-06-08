@@ -174,6 +174,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('admin.manage_salaries')}}" class="nav-link">
+              <i class="nav-icon fas fa-eye"></i>
+              <p>
+                Zarządzanie wypłatami
+              </p>
+            </a>
+          </li>
+
           <hr style="width:100%;text-align:left;margin-left:0;color:white;background-color:white;">
 
           <li class="nav-item">
