@@ -52,8 +52,30 @@ class TicketController extends Controller
     {  
         $aircrafts = Aircraft::all();
         $airports = Airport::all();
+        $tickets = Ticket::all();
+        $miejsca_eko = 0;
+        $miejsca_bis = 0;
+        $miejsca_fir = 0;
 
-        return view('dashboards.users.ticklist.tickets_list',compact('aircrafts','airports','flight'));
+        foreach($tickets as $ticket){
+            if($ticket->flight_id == $flight->id && $ticket->class == 'economic'){
+              $miejsca_eko = $miejsca_eko + 1;
+            }
+        }
+
+        foreach($tickets as $ticket){
+            if($ticket->flight_id == $flight->id && $ticket->class == 'bisness'){
+                $miejsca_bis = $miejsca_bis + 1;
+            }
+        }
+
+        foreach($tickets as $ticket){
+            if($ticket->flight_id == $flight->id && $ticket->class == 'first'){
+                $miejsca_fir = $miejsca_fir + 1;
+            }
+        }
+
+        return view('dashboards.users.ticklist.tickets_list',compact('aircrafts','airports','flight','miejsca_eko','miejsca_bis','miejsca_fir','tickets'));
     }
 
     public function buy_economic(Flight $flight)
@@ -98,6 +120,7 @@ class TicketController extends Controller
      */
     public function store(Request $request, Flight $flight)
     {
+
         request()->validate([
             'class' => 'required',
             'seat_number' => 'required',

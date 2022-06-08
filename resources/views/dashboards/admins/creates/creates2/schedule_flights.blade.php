@@ -80,35 +80,11 @@
       </tr>
     </tbody>
       <tr>
-        <th scope="col"><label for="available_seat_economic">Liczba miejsc dla klasy ekonomicznej:</label></th>
+        <th scope="col"><label for="available_seat">Liczba miejsc:</label></th>
         <td>
           @foreach($aircrafts as $aircraft)
             @if($aircraft->id == $data)
-              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_economic' value="{{$aircraft->number_of_seats_economic}}" name="available_seat_economic" step="1" class="form-control @error('available_seat_economic') is-invalid @enderror"  autofocus disabled>
-            @endif
-          @endforeach
-        </td>
-      </tr>
-    </tbody>
-    </tbody>
-      <tr>
-        <th scope="col"><label for="available_seat_bisness">Liczba miejsc dla klasy biznesowej:</label></th>
-        <td>
-        @foreach($aircrafts as $aircraft)
-          @if($aircraft->id == $data)
-            <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_bisness' name="available_seat_bisness" value="{{$aircraft->number_of_seats_bisness}}" step="1"  class="form-control @error('available_seat_bisness') is-invalid @enderror"  autofocus disabled>
-          @endif
-        @endforeach
-        </td>
-      </tr>
-    </tbody>
-    </tbody>
-      <tr>
-        <th scope="col"><label for="available_seat_first">Liczba miejsc dla klasy pierwszej:</label></th>
-        <td>
-          @foreach($aircrafts as $aircraft)
-            @if($aircraft->id == $data)
-              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_first' name="available_seat_first" value="{{$aircraft->number_of_seats_first}}" step="1"  class="form-control @error('available_seat_first') is-invalid @enderror"  autofocus disabled>
+              <input style="width: 50%; background-color: lightgray;" type="number" id='available' value="{{$aircraft->number_of_seats_economic + $aircraft->number_of_seats_bisness + $aircraft->number_of_seats_first}}" name="available_seat" step="1" class="form-control @error('available_seat') is-invalid @enderror"  autofocus disabled>
             @endif
           @endforeach
         </td>
@@ -127,19 +103,7 @@
 
         @foreach($aircrafts as $aircraft)
             @if($aircraft->id == $data)
-              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_economic' value="{{$aircraft->number_of_seats_economic}}" name="available_seat_economic" step="1" class="form-control @error('available_seat_economic') is-invalid @enderror" required autocomplete="available_seat_economic"  autofocus hidden>
-            @endif
-        @endforeach
-
-        @foreach($aircrafts as $aircraft)
-          @if($aircraft->id == $data)
-            <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_bisness' name="available_seat_bisness" value="{{$aircraft->number_of_seats_bisness}}" step="1"  class="form-control @error('available_seat_bisness') is-invalid @enderror" required autocomplete="available_seat_bisness" autofocus hidden>
-          @endif
-        @endforeach
-
-        @foreach($aircrafts as $aircraft)
-            @if($aircraft->id == $data)
-              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat_first' name="available_seat_first" value="{{$aircraft->number_of_seats_first}}" step="1"  class="form-control @error('available_seat_first') is-invalid @enderror" required autocomplete="available_seat_first" autofocus hidden>
+              <input style="width: 50%; background-color: lightgray;" type="number" id='available_seat' value="{{$aircraft->number_of_seats_economic + $aircraft->number_of_seats_bisness + $aircraft->number_of_seats_first}}" name="available_seat" step="1" class="form-control @error('available_seat') is-invalid @enderror" required autocomplete="available_seat"  autofocus hidden>
             @endif
         @endforeach
 

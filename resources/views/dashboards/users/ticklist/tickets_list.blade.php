@@ -52,6 +52,8 @@
     </style>
 
 
+
+
 <center>
   <div class="card2">
     <div class="card-body">
@@ -112,15 +114,22 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><h1>{{ $flight->price}} zł<small class="text-muted fw-light"></small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>pozostała liczba miejsc: {{$flight->available_seat_economic}}</li>
+            
+              @foreach($aircrafts as $aircraft)
+                @if($aircraft->id == $flight->aircraft_id)
+                  <li>pozostała liczba miejsc: {{$aircraft->number_of_seats_economic - $miejsca_eko}}</li>
+                @endif
+              @endforeach
               
             </ul>
             <!--<button type="button" class="w-100 btn btn-lg btn-outline-primary">Zakup</button> -->
-              @if($flight->available_seat_economic != 0)
-                <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
-              @else
-              <input class="input3" type="submit" value="Zakup" disabled>
-              @endif
+              @foreach($aircrafts as $aircraft)
+                @if($aircraft->id == $flight->aircraft_id && $aircraft->number_of_seats_economic != $miejsca_eko)
+                  <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_economic"><input class="input2" type="submit" value="Zakup"></form>
+                @elseif($aircraft->id == $flight->aircraft_id)
+                  <input class="input3" type="submit" value="Zakup" disabled>
+                @endif
+              @endforeach
           </div>
         </div>
       </div>
@@ -132,9 +141,19 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.2}} zł<small class="text-muted fw-light"></small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>pozostała liczba miejsc: {{$flight->available_seat_bisness}}</li>
+              @foreach($aircrafts as $aircraft)
+                @if($aircraft->id == $flight->aircraft_id)
+                  <li>pozostała liczba miejsc: {{$aircraft->number_of_seats_bisness - $miejsca_bis}}</li>
+                @endif
+              @endforeach
             </ul>
-            <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_bisness"><input class="input2" type="submit" value="Zakup"></form>
+            @foreach($aircrafts as $aircraft)
+                @if($aircraft->id == $flight->aircraft_id && $aircraft->number_of_seats_bisness != $miejsca_bis)
+                  <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_bisness"><input class="input2" type="submit" value="Zakup"></form>
+                @elseif($aircraft->id == $flight->aircraft_id)
+                  <input class="input3" type="submit" value="Zakup" disabled>
+                @endif
+              @endforeach
           </div>
         </div>
       </div>
@@ -146,9 +165,19 @@
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><h1>{{ $flight->price*1.5}} zł<small class="text-muted fw-light"></small></h1></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>pozostała liczba miejsc: {{$flight->available_seat_first}}</li>
+              @foreach($aircrafts as $aircraft)
+                @if($aircraft->id == $flight->aircraft_id)
+                  <li>pozostała liczba miejsc: {{$aircraft->number_of_seats_first - $miejsca_fir}}</li>
+                @endif
+              @endforeach
             </ul>
-            <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_first"><input class="input2" type="submit" value="Zakup"></form>
+            @foreach($aircrafts as $aircraft)
+                @if($aircraft->id == $flight->aircraft_id && $aircraft->number_of_seats_first != $miejsca_fir)
+                  <form action="/user/tickets/{{$flight->id}}/tickets_list/tickets_buy_first"><input class="input2" type="submit" value="Zakup"></form>
+                @elseif($aircraft->id == $flight->aircraft_id)
+                  <input class="input3" type="submit" value="Zakup" disabled>
+                @endif
+              @endforeach
           </div>
         </div>
       </div>
