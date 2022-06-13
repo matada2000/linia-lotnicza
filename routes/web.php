@@ -161,7 +161,7 @@ Route::group(['prefix'=>'user', 'middleware'=>['isUser','auth']], function(){
 Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], function(){
     Route::get('dashboard',[EmployeeController::class,'index'])->name('employee.dashboard');
     //Route::get('profile',[EmployeeController::class,'profile'])->name('employee.profile');
-    Route::get('settings',[EmployeeController::class,'settings'])->name('employee.settings');
+    //Route::get('settings',[EmployeeController::class,'settings'])->name('employee.settings');
 
     //Profile
     Route::get('profiles',[EmployeeProfileController::class,'lista'])->name('employee.profiles');
@@ -169,6 +169,8 @@ Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], functi
     Route::put('profiles/{profile}',[EmployeeProfileController::class, 'update']);
     Route::post('profiles',[EmployeeProfileController::class, 'store']);
 
+    //Salaries
+    Route::get('salaries',[EmployeeController::class,'salaries'])->name('employee.salaries');
 
 });
 

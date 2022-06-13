@@ -119,15 +119,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
 
+          <hr style="width:100%;text-align:left;margin-left:0;color:white;background-color:white;">
+          
           <li class="nav-item">
-            <a href="{{ route('employee.settings')}}" class="nav-link">
-              <i class="nav-icon fas fa-cog"></i>
-              <p>
-                Settings
+            <a href="{{ route('employee.salaries')}}" class="nav-link">
+              <i class="nav-icon fas fa-eye"></i>
+              <p style="font-size: 15px;">
+                Twoje wypłaty
               </p>
             </a>
           </li>
-
 
 
         </ul>

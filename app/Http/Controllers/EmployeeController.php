@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-
+use App\Models\Salary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -23,8 +23,12 @@ class EmployeeController extends Controller
         $data = User::all();
         return view('dashboards.employees.profile',['users'=>$data],compact('max'));
     }
-    function settings(){
-           return view('dashboards.employees.settings');
+    function salaries(){
+        $max = DB::table('users')->max('id');
+        $salaries = Salary::all();
+        $users = User::all();
+        $data = User::all();
+        return view('dashboards.employees.salaries',['users'=>$data],compact('max','users', 'salaries'));
     }
 
     public function lista()
