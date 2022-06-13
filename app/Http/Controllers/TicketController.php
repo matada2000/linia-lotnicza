@@ -40,10 +40,17 @@ class TicketController extends Controller
         return view('dashboards.users.reservations', compact('tickets'));
       }
 
-    public function downloadPDF($id){
+      public function downloadPDF($id){
         $ticket = Ticket::find($id);
+
+        $flights = DB::table('flights')
+        ->join('aircraft','flights.aircraft_id', '=', 'aircraft.id')
+        ->join('airports AS d','flights.airport_departure_id', '=', 'd.id')
+        ->join('airports AS f','flights.airport_arrival_id', '=', 'f.id')
+        ->select('flights.id','aircraft.model','d.name as o','flights.departure_time','f.name as p','flights.arrival_time','flights.created_at','flights.updated_at')
+        ->get();
   
-        $pdf = PDF::loadView('dashboards.users.edits.pdf', compact('ticket'));
+        $pdf = PDF::loadView('dashboards.users.edits.pdf', compact('ticket','flights'));
         return $pdf->download('invoice.pdf');
   
       }
