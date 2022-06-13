@@ -22,7 +22,7 @@ class Flight extends Model
         'aircraft_id', 'airport_departure_id', 'departure_time', 'airport_arrival_id', 'arrival_time', 'price', 'available_seat'
     ];
 
-    /*public function users(): BelongsToMany
+    /*public function users2(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }*/

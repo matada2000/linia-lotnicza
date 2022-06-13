@@ -15,6 +15,7 @@ use App\Http\Controllers\FlightController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EmployeeProfileController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\Flight_UserController;
 
 
 
@@ -103,6 +104,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
 
     //Schedule works
     Route::get('schedule_works',[AdminController::class,'schedule_works'])->name('admin.schedule_works');
+    Route::get('schedule_works',[Flight_UserController::class,'index'])->name('admin.schedule_works');
 
     //Schedule flights
     Route::get('schedule_flights',[AdminController::class,'schedule_flights'])->name('admin.schedule_flights');
