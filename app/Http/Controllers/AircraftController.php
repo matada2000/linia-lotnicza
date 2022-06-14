@@ -16,7 +16,7 @@ class AircraftController extends Controller
      */
     public function index()
     {
-        $aircrafts = Aircraft::paginate(5);
+        $aircrafts = Aircraft::paginate(8);
         $users = User::all();
         $max = DB::table('users')->max('id');
 

@@ -22,6 +22,10 @@
     border: none;
     background-color: LightGray;
   }
+
+  .w-5{
+    display: none;
+  }
 </style>
 
 <h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Zarządzanie Pracownikami</center></h1>
@@ -45,21 +49,23 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($users as $user)
-      @if($user->role == '3')
+      @foreach ($employees as $employee)
         <tr>
-          <th scope="row">{{ $user->id }}</th>
-          <td>{{ $user->name }}</td>
-          <td>{{ $user->surname }}</td>
-          <td>{{ $user->email }}</td>
-          <td>{{ $user->description }}</td>  
-          <td>{{ $user->created_at }}</td>
-          <td>{{ $user->updated_at }}</td>
-          <td><form action="/admin/manage_employees/{{$user->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>
+          <th scope="row">{{ $employee->id }}</th>
+          <td>{{ $employee->name }}</td>
+          <td>{{ $employee->surname }}</td>
+          <td>{{ $employee->email }}</td>
+          <td>{{ $employee->description }}</td>  
+          <td>{{ $employee->created_at }}</td>
+          <td>{{ $employee->updated_at }}</td>
+          <td><form action="/admin/manage_employees/{{$employee->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>
         </tr>
-      @endif
       @endforeach
       </tbody>
   </table>
+
+  <span>
+    {{$employees->links()}}
+  </span>
 
 @endsection

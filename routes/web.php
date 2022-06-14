@@ -105,6 +105,11 @@ Route::group(['prefix'=>'admin', 'middleware'=>['isAdmin','auth']], function(){
     //Schedule works
     Route::get('schedule_works',[AdminController::class,'schedule_works'])->name('admin.schedule_works');
     Route::get('schedule_works',[Flight_UserController::class,'index'])->name('admin.schedule_works');
+    Route::get('schedule_works/create',[Flight_UserController::class, 'create']);
+    Route::post('schedule_works',[Flight_UserController::class, 'store']);
+    Route::get('schedule_works/{praca}/edit',[Flight_UserController::class, 'edit']);
+    Route::put('schedule_works/{praca}',[Flight_UserController::class, 'update']);
+    Route::delete('schedule_works/{praca}',[Flight_UserController::class,'destroy']);
 
     //Schedule flights
     Route::get('schedule_flights',[AdminController::class,'schedule_flights'])->name('admin.schedule_flights');

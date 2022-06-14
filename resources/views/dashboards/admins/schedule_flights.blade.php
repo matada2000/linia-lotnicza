@@ -28,10 +28,29 @@
     width: 75%;
     font-size: 18px;
     background-color: ;
-    border-radius: 25px;
     border: none;
-    background-color: LightGray;
+    background-color: LightBlue;
   }
+
+  .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 </style>
 
 <h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Zarządzanie Harmonogramem Lotów</center></h1>
@@ -71,8 +90,17 @@
           <td>{{ $flight->created_at }}</td>
           <td>{{ $flight->updated_at }}</td>
           <td><form action="/admin/schedule_flights/{{$flight->id}}/edit"><input class="input2" type="submit" value="Edycja"></form>
-          <br>
-          <form action="/admin/schedule_flights/{{$flight->id}}/add_employee"><input class="input3" type="submit" value="Dodaj pracownika"></form></td>
+          <div class="dropdown">
+            <span class='input3'>Lista pracowników</span>
+            <div class="dropdown-content">
+              @foreach($pracas as $praca)
+                @if($praca->flight_id == $flight->id)
+                  <p style="border-bottom: 1px solid lightGray;">{{ $praca->surname }}  {{ $praca->name }} <br><i> {{ $praca->description }} </i></p>
+                @endif
+              @endforeach
+            </div>
+          </div>
+          </td>
         </tr>
       @endforeach
       </tbody>

@@ -16,7 +16,7 @@ class AirportController extends Controller
      */
     public function index()
     {
-        $airports = Airport::paginate(5);
+        $airports = Airport::paginate(8);
         $users = User::all();
         $max = DB::table('users')->max('id');
 

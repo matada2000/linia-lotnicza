@@ -13,8 +13,8 @@ class Aircraft extends Model
         'model', 'number_of_seats_economic', 'number_of_seats_bisness', 'number_of_seats_first'
     ];
 
-    /*public function flights()
+    public function flights()
     {
         return $this->hasMany(Flight::class);
-    }*/
+    }
 }

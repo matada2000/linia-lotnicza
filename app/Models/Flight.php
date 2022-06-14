@@ -42,8 +42,8 @@ class Flight extends Model
         return $this->hasMany(Ticket::class);
     }
     
-    public function aircraft()
+    /*public function aircraft()
     {
         return $this->hasOne(Aircraft::class);
-    }
+    }*/
 }

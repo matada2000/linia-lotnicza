@@ -33,7 +33,7 @@ class EmployeeController extends Controller
 
     public function lista()
     {
-        $employees = User::all();
+        $employees = User::where('role', '=', 3)->paginate(8);
         $users = User::all();
         $max = DB::table('users')->max('id');
 

@@ -35,7 +35,7 @@
 
 <h1 style="font-family: Courier, 'Lucida Console', monospace"><center>Zarządzanie Harmonogramem Pracy</center></h1>
 
-<form action="/admin/manage_airports/create"><center><input class="input1" type="submit" value="Dodaj"></center></form>
+<form action="/admin/schedule_works/create"><center><input class="input1" type="submit" value="Dodaj"></center></form>
 
 <br>
 <br>
@@ -61,7 +61,7 @@
                 @if($airport->id == $praca->airport_departure_id)
                     {{ $airport->name  }}
                 @endif
-            @endforeach  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>({{ $praca->departure_time }})</i><br> 
+            @endforeach<br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>({{ $praca->departure_time }})</i><br> 
             | <br>
             <i>
             @foreach($aircrafts as $aircraft)
@@ -75,15 +75,17 @@
                 @if($airport->id == $praca->airport_arrival_id)
                     {{ $airport->name  }}
                 @endif
-            @endforeach  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>({{ $praca->arrival_time }})</i>
+            @endforeach<br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>({{ $praca->arrival_time }})</i>
             </td>
-          <td style="border-bottom: 1px solid lightGray; vertical-align: middle;"><form action="#"><input class="input2" type="submit" value="Edycja"></form></td>
+          <td style="border-bottom: 1px solid lightGray; vertical-align: middle;"><form action="/admin/schedule_works/{{$praca->id}}/edit"><input class="input2" type="submit" value="Edycja"></form></td>
         </tr>
       @endforeach
       </tbody>
   </table>
 
-      
+  <span>
+    {{$pracas->links()}}
+  </span>
   
 
 @endsection

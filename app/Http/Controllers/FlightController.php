@@ -24,6 +24,7 @@ class FlightController extends Controller
         //$flights = Flight::all();
         $users = User::all();
         $max = DB::table('users')->max('id');
+        $pracas = 
 
         //SELECT s.model, l.name, d.name FROM flights AS f JOIN aircraft AS s ON f.aircraft_id = s.id JOIN airports AS l ON f.airport_departure_id = l.id JOIN airports AS d ON f.airport_arrival_id = d.id;
 
@@ -34,7 +35,13 @@ class FlightController extends Controller
         ->select('flights.id','aircraft.model','d.name as o','flights.departure_time','f.name as p','flights.arrival_time','flights.created_at','flights.updated_at')
         ->get();
 
-        return view('dashboards.admins.schedule_flights',compact('max','users','flights'));
+        $pracas = DB::table('flight__users')
+        ->join('flights','flight__users.flight_id', '=', 'flights.id')
+        ->join('users','flight__users.user_id', '=', 'users.id')
+        ->select('users.name','users.surname','users.description','flight__users.flight_id')
+        ->get();
+
+        return view('dashboards.admins.schedule_flights',compact('max','users','flights','pracas'));
     }
 
     /**

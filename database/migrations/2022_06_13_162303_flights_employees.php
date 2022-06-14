@@ -13,7 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('flight_user', function (Blueprint $table) {
+        Schema::create('flight__users', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('flight_id')->constrained();
             $table->timestamps();
