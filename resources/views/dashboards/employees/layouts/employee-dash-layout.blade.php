@@ -130,6 +130,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
 
+          <li class="nav-item">
+            <a href="{{ route('employee.schedule_works')}}" class="nav-link">
+              <i class="nav-icon fas fa-eye"></i>
+              <p style="font-size: 15px;">
+                Twoj harmonogram
+              </p>
+            </a>
+          </li>
+
 
         </ul>
       </nav>

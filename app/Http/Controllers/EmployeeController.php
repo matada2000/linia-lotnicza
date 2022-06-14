@@ -7,6 +7,15 @@ use App\Models\User;
 use App\Models\Salary;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Airport;
+use App\Models\Aircraft;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
+
+use Carbon\Carbon;
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class EmployeeController extends Controller
 {
@@ -30,6 +39,34 @@ class EmployeeController extends Controller
         $data = User::all();
         return view('dashboards.employees.salaries',['users'=>$data],compact('max','users', 'salaries'));
     }
+
+    function works(){
+        $max = DB::table('users')->max('id');
+        $aircrafts = Aircraft::all();
+        $airports = Airport::all();
+
+        $pracas =  DB::table('flight__users')
+        ->join('flights','flight__users.flight_id', '=', 'flights.id')
+        ->join('users','flight__users.user_id', '=', 'users.id')
+        ->whereRaw("flight__users.user_id = '".Auth()->user()->id."'")
+        ->select(\DB::raw('
+        DATE_FORMAT(flights.departure_time, "%Y.%m.%d %W") as data, 
+        flight__users.user_id as idu, 
+        DATE_FORMAT(flights.departure_time, "%H:%i") as od_time, 
+        DATE_FORMAT(flights.arrival_time, "%H:%i") as do_time, 
+        flights.airport_departure_id, 
+        flights.airport_arrival_id, 
+        flights.aircraft_id 
+        '))
+        ->orderBy('flights.departure_time','ASC')->get();
+
+        $zmienna = 0;
+
+        $users = User::all();
+        $data = User::all();
+        return view('dashboards.employees.schedule_works',compact('max','users', 'pracas','data','zmienna','aircrafts','airports'));
+    }
+
 
     public function lista()
     {

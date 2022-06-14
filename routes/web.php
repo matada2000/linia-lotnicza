@@ -179,5 +179,8 @@ Route::group(['prefix'=>'employee', 'middleware'=>['isEmployee','auth']], functi
     //Salaries
     Route::get('salaries',[EmployeeController::class,'salaries'])->name('employee.salaries');
 
+    //Works
+    Route::get('schedule_works',[EmployeeController::class,'works'])->name('employee.schedule_works');
+
 });
 
